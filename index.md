@@ -8,4 +8,4 @@ The links below will take you to each of the write ups for the tryhackme.com roo
 
 [Basic Penetration CTF](https://github.com/Kartibok/Capture-the-Flag/blob/master/basic_pentesting.md)
 
-# *more added as I do them* 
+![Karti-thm](https://tryhackme-badges.s3.amazonaws.com/Karti.png")
