@@ -7,7 +7,7 @@ The links below will take you to each of the write ups for the tryhackme.com roo
 ## Challenges
 
 * [Basic Penetration CTF](https://github.com/Kartibok/Capture-the-Flag/blob/master/basic_pentesting.md)
-* [Vulnversity CTF] (https://github.com/Kartibok/Capture-the-Flag/blob/master/vulnversity.md)
+* [Vulnversity CTF](https://github.com/Kartibok/Capture-the-Flag/blob/master/vulnversity.md)
 
 
 
