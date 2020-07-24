@@ -25,15 +25,32 @@ Onto gobuster.
 /server-status
 
 ```
-After an initial run using directory-list-2.3-medium,txt we find an internal directory with a page that allows you to upload files. Running gobuster on this directory then provides us with the directory they are stored in.
+After an initial run using directory-list-2.3-medium,txt we find an /internal directory with a page that allows you to upload files. Running gobuster on this directory then provides us with the directory those files are stored in.
 
-Next I tried to see if it would upload specific files and or file types. I have been doing these rooms as part of my new hobby for about 2 months and had picked up some reverse scripts which I had kept in the Zim Desktop Wiki that has become my go to document set. I tried a .php file but that came back as "Extension not allowed."
+It would be rude not to try and see if it would upload specific files and or file types. I have been doing these rooms as part of my new CTF hobby for about 2 months now and had picked up some reverse scripts, which I keep stored in the in the Zim Desktop Wiki that has become my go to document storage for CTF in general.
+I tried the file in the off chance it would work - php-reverse-shell.php (by pentestmonkey), but that came back as "Extension not allowed."
 Having done some work on the Burp Suite room, I decided run that next.
-## burp suite
-After some time doing these CTFs, I followed teh advice of people and use Firefox as my main browser when I complete them.We tested a standard file to see if it will upload. In this example we uploaded a text.php, in case we can use a reverse shell. This failed initially, so used burpe suite to do the following:
 
-1. Intercept and attempt to upload a file.
-2. Send the intercepted request to Intruder.
+## burp suite
+If you have not completed the Burpe Suite room, it is recommented to do so. Based on the Community Edition and readily available, it can be a very useful tool. One of the pre-requisites is that your browser is set to use the local host proxy. This can be simplified by using a Firefox extension; Foxy Proxy. Ain set up details for this can be found on the internet.
+I currently use Firefox as after some time doing these CTFs, the advice given pointed that way, though I am sure there are other browsers you may prefer. We have already tried a file, lets do it this time with Burpe Suite capturing the results.
+Switch on Foxy Proxy and start BS. You may be prompted to update, your choice but the window can just be closed. You will then have the options to start a temporary project with default settings. These are fine, so select and go to the main window.
+Now click on the Proxy tab, and verify that the "Intercept is On" is selected.
+Next from the :3333/internal/ site, upload a file. BS will open and you will see that it has captured the infomation from the host to teh server.You should see your file name in the Content-Disposition: 
+Right click anywhere in the Proxy > Raw tab, and "Send to Intruder."
+We now see 4 new tabs. We will cover them individually.
+1. Target. This is automatuically generated and should be the target computer.
+2. Positions. This will have automatically checkedthecomplete filename we tried to enter on the website. We need to change this slightly as we just want to test the extensions. SO click the Clear button on the right side menu. Now highlight the file extension (missing out the decimal point). What this is doing is selecting the area that BS will change each time it tries to add a file. So the filename stays teh same only the extension changes.
+3. Payloads. We keep the Payload Set as 1 and Type as a Simple List. We then load the options file, which could be the file recommended with teh five file types. In this case I use the extensions-common-list. What I do notice in this case is that once the file has loaded I see they have a decimal point before the extension. IN this case I need to go back and remove the decimal point from the Positions tab, it should look like this; filename="exploit§php§" Last one is that we untick Payload Encoding as it will change the decimal point to an encoded character.
+4. Options. Finally I leave these to the default settings.
+
+Now we are ready, we just need to take off the Proxy tab, Intercept is on button and change to Intercept is off. Go back to Intruder and use the Start Attack button, top right of the screen.
+A demo warning pops up giving various restrictions in place. Just OK.
+
+
+
+Intercept and attempt to upload a file.
+2. Send the intercepted request to Intruder. The Intruder tab will now highlight. Select and we see thrwill now highlight
 3. Clear payload positions and add by selecting the 'php' extension.
 4. Select a payload set as a simple list (extensions_common.txt) and upload your payload list.
 5. Start your attack.
