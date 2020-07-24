@@ -11,6 +11,9 @@ Port 445 Samba
 Port 3128 Squid
 Port 3333 http
 ```
+If have a look at the website now remembering to view from port 3333 for http, we find what appears to be a scool.collage or university type web design. There doesn't appear to anything on the site with all links going back to home page.Viewing page source doesn't give any hints that I can see from the comments section.
+Onto gobuster.
+
 ## gobuster
 ```
 /css
@@ -22,8 +25,12 @@ Port 3333 http
 /server-status
 
 ```
+After an initial run using directory-list-2.3-medium,txt we find an internal directory with a page that allows you to upload files. Running gobuster on this directory then provides us with the directory they are stored in.
+
+Next I tried to see if it would upload specific files and or file types. I have been doing these rooms as part of my new hobby for about 2 months and had picked up some reverse scripts which I had kept in the Zim Desktop Wiki that has become my go to document set. I tried a .php file but that came back as "Extension not allowed."
+Having done some work on the Burp Suite room, I decided run that next.
 ## burp suite
-We tested a standard file to see if it will upload. In this example we uploaded a text.php, in case we can use a reverse shell. This failed initially, so used burpe suite to do the following:
+After some time doing these CTFs, I followed teh advice of people and use Firefox as my main browser when I complete them.We tested a standard file to see if it will upload. In this example we uploaded a text.php, in case we can use a reverse shell. This failed initially, so used burpe suite to do the following:
 
 1. Intercept and attempt to upload a file.
 2. Send the intercepted request to Intruder.
