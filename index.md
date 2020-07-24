@@ -8,8 +8,8 @@ The links below will take you to each of the write ups for the tryhackme.com roo
  
 ## Challenges
 
-* [Basic Penetration CTF](basic_pentesting.md)
-* [Vulnversity CTF](vulnversity.md)
+* [Basic Penetration CTF](/tryhackme/basic_pentesting.md)
+* [Vulnversity CTF](/tryhackme/vulnversity.md)
 
 
 
