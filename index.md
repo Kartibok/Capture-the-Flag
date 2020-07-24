@@ -1,5 +1,7 @@
 # Capture the Flag
 
+![](https://tryhackme.com/badge/65208)
+
 Welcome to my attempts at learning penetration testing, python, web development, and finally Capture the Flag.
 
 The links below will take you to each of the write ups for the tryhackme.com rooms and challenges.
