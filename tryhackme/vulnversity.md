@@ -134,7 +134,7 @@ We can create a more interactive shell by:
 ```
 python -c 'import pty;pty.spawn("/bin/bash")'
 ```
-Lets search for the user flag. SImple enough to find.check out ?home for users, where we find Bill. Check his folder structure and we find the user.txt.
+Lets search for the user flag. Simple enough to find. Check out /home for users, where we find Bill. Check his folder structure and we find the user.txt.
 ```
 www-data@vulnuniversity:/$ cd home
 cd home
