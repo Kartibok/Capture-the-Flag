@@ -32,30 +32,69 @@ I tried the file in the off chance it would work - php-reverse-shell.php (by pen
 Having done some work on the Burp Suite room, I decided run that next.
 
 ## burp suite
-If you have not completed the Burpe Suite room, it is recommented to do so. Based on the Community Edition and readily available, it can be a very useful tool. One of the pre-requisites is that your browser is set to use the local host proxy. This can be simplified by using a Firefox extension; Foxy Proxy. Ain set up details for this can be found on the internet.
+If you have not completed the Burpe Suite (BS) room, it is recommended that you do so. Based on the Community Edition and readily available as software download or indeed part of Kali, it can be a very useful tool. One of the pre-requisites is that your browser is set to use the local host proxy. This can be simplified by using a Firefox extension; Foxy Proxy. Set up details for this can easily be found on the internet.
+
 I currently use Firefox as after some time doing these CTFs, the advice given pointed that way, though I am sure there are other browsers you may prefer. We have already tried a file, lets do it this time with Burpe Suite capturing the results.
-Switch on Foxy Proxy and start BS. You may be prompted to update, your choice but the window can just be closed. You will then have the options to start a temporary project with default settings. These are fine, so select and go to the main window.
-Now click on the Proxy tab, and verify that the "Intercept is On" is selected.
-Next from the :3333/internal/ site, upload a file. BS will open and you will see that it has captured the infomation from the host to teh server.You should see your file name in the Content-Disposition: 
-Right click anywhere in the Proxy > Raw tab, and "Send to Intruder."
+
+Switch on Foxy Proxy and start BS. You may be prompted to update, so this is your choice but the window can just be closed. You will then have the options to start a temporary project (only one you can select unless you have the pro version). Just ensure **Use Burp defaults** is ticked and then hit **Start Burp**. This takes us to the main window.
+
+<img src="../images/main_window.png" alt="main window" width="500"/>
+<br>
+<br>
+
+Now click on the Proxy tab, and verify that the **Intercept is on** is selected.
+Next from the Firefox browser, :3333/internal/ site, upload a file.
+BS will open and you will see that it has captured the information from the host to the server.
+If you have a look round you should be able to see your file name in the Content-Disposition:
+
+<img src="../images/content_disposition.png" alt="content disposition" width="400"/>
+<br>
+<br>
+
+Lets use that information to use one of the other BS tools - Intruder. Right click anywhere in the within this Proxy/Intercept/Raw field and **Send to Intruder**
+
+The Intruder tab next to Proxy now highlights. Click on this and we see four tabs.
+
+<img src="../images/four_tabs.png" alt="content disposition" width="400"/>
+<br>
+<br>
+
 We now see 4 new tabs. We will cover them individually.
+
 1. Target. This is automatuically generated and should be the target computer.
-2. Positions. This will have automatically checkedthecomplete filename we tried to enter on the website. We need to change this slightly as we just want to test the extensions. SO click the Clear button on the right side menu. Now highlight the file extension (missing out the decimal point). What this is doing is selecting the area that BS will change each time it tries to add a file. So the filename stays teh same only the extension changes.
-3. Payloads. We keep the Payload Set as 1 and Type as a Simple List. We then load the options file, which could be the file recommended with teh five file types. In this case I use the extensions-common-list. What I do notice in this case is that once the file has loaded I see they have a decimal point before the extension. IN this case I need to go back and remove the decimal point from the Positions tab, it should look like this; filename="exploit§php§" Last one is that we untick Payload Encoding as it will change the decimal point to an encoded character.
+<img src="../images/target.png" alt="content disposition" width="400"/>
+<br>
+<br>
+2. Positions. This will have automatically selected the complete filename we tried to enter on the website. We need to change this slightly as we just want to test the actual extensions.
+<img src="../images/positions.png" alt="content disposition" width="400"/>
+<br>
+<br>
+Click the **Clear** button on the side menu. highlight file extension and delete the decimal point.
+<img src="../images/add_view.png" alt="content disposition" width="300"/>
+<br>
+<br>
+What this is doing is selecting the area that BS will update each time it tries to upload a file. The filename stays the same, only the extension changes. The reason we remove the decimal point is that in the payload file that we will be using, each extension already has the point in place. Finally ensure that the Attack type is **Sniper**
+3. Payloads. We keep the Payload Set as 1 and Type as a Simple List. Now load the options file, which could be the file recommended in the room containing five file types.
+<img src="../images/payloads.png" alt="content disposition" width="300"/>
+<br>
+<br>
+<img src="../images/payload_encoding.png" alt="content disposition" width="300"/>
+<br>
+<br>
+In this case I will use the extensions-common-list. Last thing to do in this tab is to untick Payload Encoding otherwise it will change the decimal point to an encoded character.
 4. Options. Finally I leave these to the default settings.
-
-Now we are ready, we just need to take off the Proxy tab, Intercept is on button and change to Intercept is off. Go back to Intruder and use the Start Attack button, top right of the screen.
-A demo warning pops up giving various restrictions in place. Just OK.
-
-
-
-Intercept and attempt to upload a file.
-2. Send the intercepted request to Intruder. The Intruder tab will now highlight. Select and we see thrwill now highlight
-3. Clear payload positions and add by selecting the 'php' extension.
-4. Select a payload set as a simple list (extensions_common.txt) and upload your payload list.
-5. Start your attack.
-6. Now filter your results to find the extension that the site accepted.
-7. Now we know that .phtml is accepted amend the exploit.py to exploit.phtml.
+<br>
+<img src="../images/payload_encoding.png" alt="content disposition" width="300"/>
+<br>
+<br>
+Now we are ready, we just need to disable Foxy Proxy, go to the Proxy tab, and ensure that **Intercept is off**
+Go back to Intruder and use the **Start Attack** button, top right of the screen.
+A demo warning pops up highlighting some functionality is disabled. Just hit **OK**
+5.Once the attack is completed we see a **Results** tab. The trick here is to look at the length of the return file, where you can filter on size. You will then notice that one file stands out. We now know what extension our payload needs to be uploaded as. We can now amend our file accordingly.
+<br>
+<img src="../images/results.png" alt="content disposition" width="300"/>
+<br>
+<br>
 
 ## reverse shell
 We will use the pentestmonkey reverse shell ensuring that as well as changing the extention to .phtml, that we update the IP address and Port of the attackers machine, in preperation for the netcat command.
