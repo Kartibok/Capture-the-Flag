@@ -13,7 +13,7 @@ Port 445 Samba
 Port 3128 Squid
 Port 3333 http
 ```
-I use the **-sC** to enable the default list of scripts and the **-sV** for version identify. If we now look at the website, remembering to view from port 3333 for http, we find what appears to be a school/collage or university type website. There doesn't appear to anything of interest on the site, with all links going back to homepage. Viewing the page source doesn't give any hints that I can see either focusing on the html comments. Onto gobuster.
+With nmap, I use the **-sC** to enable the default list of scripts and the **-sV** for version identification. If we now check out the website, remembering to view from port 3333 for http, we find what appears to be a school/collage or university type website. There doesn't appear to anything of interest on the site, with all links going back to homepage and a quick look at the page source doesn't give any hints that I can see either, focusing on the html comments.
 
 ## gobuster
 ```
@@ -27,15 +27,15 @@ gobuster dir -u http://<IP> -w /usr/share/wordlists/dirbuster/directory-list-2.3
 /server-status
 
 ```
-Setings for gobuster incude **dir** for directory search, -u for the URL and -w for the wordlist. After an initial run using directory-list-2.3-medium,txt we find an /internal directory with a page that allows you to upload files. Running gobuster again, adding this directory, provides us with the location that those files are stored.
+Settings for gobuster include **dir** for directory search, -u for the URL and -w for the wordlist. After an initial run using directory-list-2.3-medium,txt we find an /internal directory with a page that allows you to upload files. Running gobuster again, against this directory, provides us with the location that those files are stored.
 
-It would be rude not to try and see if it would upload specific files and or file types. I have been doing these rooms as part of my onging love of CTF as a hobby for about 2 months now and have picked up some reverse scripts, which I keep stored in the Zim Desktop Wiki, that has become my go to document storage for these types of games.
+No harm in trying a specific file and type first. I have been doing these rooms as part of my ongoing love of CTF as a hobby for about two months now and have picked up some reverse scripts, which I keep stored in the Zim Desktop Wiki, that has become my document/snippet solution of choice for these types of games.
 
-I tried the file in the off chance it would work: php-reverse-shell.php (by pentestmonkey), but that came back as "Extension not allowed."
-Having become familiar with the Burp Suite room, I decided to run thatnext.
+I tried the php-reverse-shell.php (by pentestmonkey) in the off chance it would work, but that came back as "Extension not allowed." Next, having become familiar with the Burp Suite room, I decided to run that next.
 
 ## burp suite
-If you have not completed the Burpe Suite (BS) room, it is recommended that you do so. Based on the Community Edition and readily available as either a software download or indeed built in as an application on Kali, it can be a very useful tool. 
+If you have not completed the Burpe Suite (BS) room, it is recommended that you do so. Based on the Community Edition and readily available as either a software download or indeed built into an application on Kali. A very useful tool indeed. 
+
 One of the pre-requisites is that your browser is set to use the local host proxy. This can be simplified by using a Firefox extension: Foxy Proxy. Set up details for this can easily be found on the internet and on the BS site.
 
 I currently use Firefox as after some time doing these CTFs, the general advice was that it is preffered, though I am sure there are other browsers you may want to use. As we have already tried to upload a file, let us do it again, this time with BS capturing the results.
@@ -84,14 +84,14 @@ Click the **Clear** button on the side menu. Then highlight file extension and d
 <img src="../images/add_view.png" alt="content disposition" width="300"/>
 <br>
 <br>
-What this is doing is selecting the area that BS will update each time it tries to upload a file. The filename stays the same, only the extension changes. The reason we remove the decimal point is that in the payload file that we will be using, each extension already has the point in place. Finally ensure that the Attack type is **Sniper**
-3. Payloads. We keep the Payload Set as 1 and Type as a Simple List. Now load the options file, which could be the file recommended in the room containing five file types.
+What this is doing is selecting the area that BS will update each time it tries to upload a file. The filename stays the same, only the extension changes. The reason we remove the decimal point is that in the payload file that we will be using: each extension already has the point in place. Finally ensure that the Attack type is **Sniper**
+3. Payloads. We keep the Payload Set as 1 and Type as a Simple List. Now load the options file, which could be the file you created as part of the video tutorial containing five file types.
 <br>
 <br>
 <img src="../images/payloads.png" alt="content disposition" width="300"/>
 <br>
 <br>
-In this case I will use the extensions-common-list.txt. Last thing to do in this tab is to untick Payload Encoding otherwise it will change the decimal point to an encoded character whiich will fail each attempt.
+In this case I will use the extensions-common-list.txt. Last thing to do in this tab is to untick Payload Encoding otherwise it will change the decimal point to an encoded character which will fail each attempt.
 4. Options. Finally I leave these to the default settings.
 <br>
 <br>
@@ -114,9 +114,9 @@ We will use the pentestmonkey reverse shell ensuring that as well as changing th
 ```
 nc -lnvp 9001
 ````
-We now upload the file directly to the _/internal/upload_ folder and run it from the browser by clicking or by using a curl command.
+We now upload the file php-reverse-shell.?  directly to the _/internal/upload_ folder and run it from the browser by clicking or by using a curl command.
 ```
-curl http://<IP>:3333/internal/uploads/php-reverse-shell.phtml
+curl http://<IP>:3333/internal/uploads/php-reverse-shell.?
 ```
 <br>
 <br>
@@ -197,3 +197,5 @@ This changes the SUID of bash to allow us to use as root. We simply:
 bash -p
 ````
 And now we have root permissions in the shell. Again use to read the flag file.
+
+I really enjoyed this room and completing a write up. Hopefully I will become more proficient at both!!
