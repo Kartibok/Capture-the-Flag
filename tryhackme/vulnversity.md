@@ -62,39 +62,47 @@ The Intruder tab next to Proxy now highlights. Click on this and we see four tab
 We now see 4 new tabs. We will cover them individually.
 
 1. Target. This is automatuically generated and should be the target computer.
+<br>
+<br>
 <img src="../images/target.png" alt="content disposition" width="400"/>
 <br>
 <br>
 2. Positions. This will have automatically selected the complete filename we tried to enter on the website. We need to change this slightly as we just want to test the actual extensions.
+<br>
+<br>
 <img src="../images/positions.png" alt="content disposition" width="400"/>
 <br>
 <br>
 Click the **Clear** button on the side menu. highlight file extension and delete the decimal point.
+<br>
+<br>
 <img src="../images/add_view.png" alt="content disposition" width="300"/>
 <br>
 <br>
 What this is doing is selecting the area that BS will update each time it tries to upload a file. The filename stays the same, only the extension changes. The reason we remove the decimal point is that in the payload file that we will be using, each extension already has the point in place. Finally ensure that the Attack type is **Sniper**
 3. Payloads. We keep the Payload Set as 1 and Type as a Simple List. Now load the options file, which could be the file recommended in the room containing five file types.
+<br>
+<br>
 <img src="../images/payloads.png" alt="content disposition" width="300"/>
-<br>
-<br>
-<img src="../images/payload_encoding.png" alt="content disposition" width="300"/>
 <br>
 <br>
 In this case I will use the extensions-common-list. Last thing to do in this tab is to untick Payload Encoding otherwise it will change the decimal point to an encoded character.
 4. Options. Finally I leave these to the default settings.
 <br>
-<img src="../images/payload_encoding.png" alt="content disposition" width="300"/>
+<br>
+<img src="../images/payload_encoding.png" alt="content disposition" width="400"/>
 <br>
 <br>
 Now we are ready, we just need to disable Foxy Proxy, go to the Proxy tab, and ensure that **Intercept is off**
 Go back to Intruder and use the **Start Attack** button, top right of the screen.
 A demo warning pops up highlighting some functionality is disabled. Just hit **OK**
-5.Once the attack is completed we see a **Results** tab. The trick here is to look at the length of the return file, where you can filter on size. You will then notice that one file stands out. We now know what extension our payload needs to be uploaded as. We can now amend our file accordingly.
+5.Once the attack is completed we see a **Results** tab. 
+<br>
 <br>
 <img src="../images/results.png" alt="content disposition" width="300"/>
 <br>
 <br>
+The trick here is to look at the length of the return file, where you can filter on size. You will then notice that one file stands out. We now know what extension our payload needs to be uploaded as. We can now amend our file accordingly.
 
 ## reverse shell
 We will use the pentestmonkey reverse shell ensuring that as well as changing the extention to .phtml, that we update the IP address and Port of the attackers machine, in preperation for the netcat command.
