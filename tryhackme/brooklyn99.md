@@ -1,3 +1,5 @@
+<a href="https://tryhackme.com/room/brooklynninenine"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
+
 # Brooklyn 99
 
 ## nmap
@@ -7,22 +9,13 @@ Port 22 ssh
 Port 80 http
 ```
 ## gobuster
-```
-/css
-/font
-/images
-/index.html
-/internal # provides upload facility with files stored held at /internal/uploads
-/js
-/server-status
+Gobuster did not big anything to the table, so lets look to the actual front facing website.
 
-```
 ## webside
 If we view source we can see a comment:
 ```
 <!-- Have you ever heard of steganography? -->
 ```
-
 So lets download that image and see what it gives us.
 ```
 wget http://10.10.230.236/brooklyn99.jpg
@@ -38,7 +31,7 @@ brooklyn99.jpg               100%[============================================>]
 ```
 ## steganography
 
-First things first lets just check the .jpg with file and strings in case anything pops out. This shows as corrupted so I will get back to that later if need be.
+First things first lets just check the .jpg with file and strings in case anything pops out. This shows nothing but when we use steghide, the file comes back as corrupted. Possibly as the data that was hidden is compressed first. Somethingto come back to if we need more details.
 
 ## ftp
 
@@ -58,7 +51,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-07-26 11:53:
 [WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
 [DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
 [DATA] attacking ssh://10.10.230.236:22/
-[22][ssh] host: 10.10.230.236   login: jake   password: 987654321
+[22][ssh] host: 10.10.230.236   login: jake   password: <insertpasswordhere>
 1 of 1 target successfully completed, 1 valid password found
 [WARNING] Writing restore file because 1 final worker threads did not complete until end.
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-07-26 11:54:19
@@ -77,7 +70,7 @@ I can see that again her home directory is empty, but she does have an .ssh fold
 
 **Holt**
 This time we can see two files.
-1. nano.save
+1. nano.save 
 2. user.txt
 
 It we read this we get the answer to Task 1 #1
