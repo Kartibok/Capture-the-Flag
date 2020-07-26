@@ -9,7 +9,7 @@ Port 22 ssh
 Port 80 http
 ```
 ## gobuster
-Gobuster did not big anything to the table, so lets look to the actual front facing website.
+Gobuster did not bring anything to the table, so lets look to the actual front facing website.
 
 ## webside
 If we view source we can see a comment:
