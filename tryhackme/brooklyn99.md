@@ -31,8 +31,23 @@ brooklyn99.jpg               100%[============================================>]
 ```
 ## steganography
 
-First things first lets just check the .jpg with file and strings in case anything pops out. This shows nothing but when we use steghide, the file comes back as corrupted. Possibly as the data that was hidden is compressed first. Somethingto come back to if we need more details.
+First things first lets just check the .jpg with file and strings in case anything pops out. This shows nothing but when we use steghide, the file comes back as corrupted. Possibly as the data that was hidden is compressed first or requires an actual password. Lets try stegcracker and rockyou.txt to see if we find anything:
+```
+stegcracker brooklyn99.jpg 
+StegCracker 2.0.8 - (https://github.com/Paradoxis/StegCracker)
+Copyright (c) 2020 - Luke Paris (Paradoxis)
 
+Counting lines in wordlist..
+Attacking file 'brooklyn99.jpg' with wordlist '/usr/share/wordlists/rockyou.txt'..
+Successfully cracked file with password: <insertpasswordhere>
+Tried 20651 passwords
+Your file has been written to: brooklyn99.jpg.out
+```
+Lets now try steghide with the password that we have just cracked.
+
+This produces a note.txt which then provides us with Capt Holt's password
+
+Lets carry on and see what we can get. We can always use this information later.
 ## ftp
 
 Lets see what we can get on the FTP server. As it is anonymous, I just use the browser to see what files are available. In this case we have a note from Amy to Jake:
