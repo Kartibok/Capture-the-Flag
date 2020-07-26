@@ -9,8 +9,8 @@ The links below will take you to each of the write ups for the tryhackme.com roo
 ## Challenges
 
 * [Basic Penetration CTF](/tryhackme/basic_pentesting.md)
+* [Brooklyn 99 CTF](/tryhackme/brooklyn99.md)
 * [Skynet CTF](/tryhackme/skynet.md)
 * [Vulnversity CTF](/tryhackme/vulnversity.md)
-
 
 
