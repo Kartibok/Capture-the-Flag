@@ -10,6 +10,7 @@ The links below will take you to each of the write ups for the tryhackme.com roo
 
 * [Basic Penetration CTF](/tryhackme/basic_pentesting.md)
 * [Brooklyn 99 CTF](/tryhackme/brooklyn99.md)
+* [Easy Peasy CTF](/tryhackme/easy_peasy.md)
 * [Skynet CTF](/tryhackme/skynet.md)
 * [Vulnversity CTF](/tryhackme/vulnversity.md)
 
