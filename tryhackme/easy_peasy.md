@@ -1,3 +1,5 @@
+<a href="https://tryhackme.com/room/vulnversity"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
+
 # Easy Peasy
 
 ## nmap
@@ -6,7 +8,6 @@ nmap -sC -sV <IP> -p-
 
 Looking at the questions and tasks, we see that one of the entries is asking for the number of ports open. I did a standard 1000 port check and my answer was wrong so I then completed an all port check. That gave me the correct answer for [Task 1] #1. This also covered [Task 1] #2 and #3. 
 
-
 ```
 ~/CTF/tryhackme/easy_peasy$ nmap -sC -sV 10.10.30.38 -p-
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-03 07:13 BST
@@ -14,17 +15,17 @@ Nmap scan report for 10.10.30.38
 Host is up (0.021s latency).
 Not shown: 65532 closed ports
 PORT      STATE SERVICE VERSION
-**/tcp    open  http    nginx *.**.*
+--/tcp    open  http    nginx *.**.*
 | http-robots.txt: 1 disallowed entry 
 |_/
 |_http-server-header: nginx/*.**.*
 |_http-title: Welcome to nginx!
-****/tcp  open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+----/tcp  open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
 |   2048 30:4a:2b:22:ac:d9:56:09:f2:da:12:20:57:f4:6c:d4 (RSA)
 |   256 bf:86:c9:c7:b7:ef:8c:8b:b9:94:ae:01:88:c0:85:4d (ECDSA)
 |_  256 a1:72:ef:6c:81:29:13:ef:5a:6c:24:03:4c:fe:3d:0b (ED25519)
-*****/tcp open  http    Apache httpd 2.4.43 ((Ubuntu))
+-----/tcp open  http    Apache httpd 2.4.43 ((Ubuntu))
 | http-robots.txt: 1 disallowed entry 
 |_/
 |_http-server-header: Apache/2.4.43 (Ubuntu)
@@ -36,27 +37,25 @@ Nmap done: 1 IP address (1 host up) scanned in 1968.53 seconds
 
 ```
 ## gobuster
-Using TMUX or Terminator, once I find a directory of interest, I open a new terminal and use gobuster again. Below are the directories that were found, with child directories showing.
+Using TMUX or Terminator, once I find a directory of interest, I open a new terminal and use gobuster again. Below are the directories that were found, with child directories indicated.
 
 gobuster dir -u <IP> -w /usr/share/wordlists/dirbuster/directory-2.3-medium.txt
 ```
-/h*****	/w******r 
+/h-----	/w------r 
 ```
-When we investigate each index.html on the folder structure from /h*****/w******r  we see what appears to be a piece of HTML comment: 
+When we investigate each index.html on the folder structure from /h-----/w------r  we see what appears to be a piece of HTML comment: 
 ```
 <body>
 <center>
-<p hidden>Z********XJz**********==</p>
+<p hidden>Z--------XJz----------==</p>
 </center>
 </body>
 </html>
-
-
 ```
 You can use GCHQ Cyberchef to decode the Base64 or you could use the commandline:
 ```
-tryhackme/easy_peasy$ echo Z********XJz**********== | base64 --decode
-****{**********}
+tryhackme/easy_peasy$ echo Z--------XJz----------== | base64 --decode
+----{----------}
 
 ```
 Within the last folder the title name was "dead end", so for the moment I moved on and started to look at the second port running a site. Again we review the source page. We see some further code:
@@ -66,18 +65,18 @@ Within the last folder the title name was "dead end", so for the moment I moved 
         <img src="/icons/openlogo-75.png" alt="Debian Logo" class="floating_element"/>
         <span class="floating_element">
           Apache 2 It Works For Me
-	<p hidden>its encoded with ba....:O**********X6d*********u</p>
+	<p hidden>its encoded with ba....:O----------X6d---------u</p>
         </span>
       </div>
 ```
-This took me a while as I made some assumptions. I thought I checked all the variants of base??, hell I even tried to decode it with Bacon!. In the end we get the decoded directory name [Task 2] #4.
+This took me a while as I made some assumptions. I thought I checked all the variants of base??, hell I even tried to decode it with bacon!. In the end we get the decoded directory name [Task 2] #4.
 ```
-/n*********3*****r
+/n---------3-----r
 ```
 
 ## nikto
 
-Nikto picked up the /h*****/w******r directories that we saw in the initial gobuster check. It also highlighted the robots.txt, which pretty much banned all searches. 
+Nikto picked up the /h-----/w------r directories that we saw in the initial gobuster check. It also highlighted the robots.txt, which pretty much banned all searches. More on this file later.
 
 ## steganography
 
@@ -90,7 +89,7 @@ $3br
 &'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
 `@?*
 ```
-On the same source page we also have a long coded piece of text that is shown as Base64 and this took up some time. If I had just read the Hint file, it would have saved me about 20 minutes!!
+On the same source page we also have a long coded piece of text that is shown as Base64 and this took up some more of my time. If I had just read the Hint file, it would have saved me about 30 minutes!!
 
 ```
 <img src="binarycodepixabay.jpg" width="140px" height="140px"/>
@@ -101,15 +100,15 @@ On the same source page we also have a long coded piece of text that is shown as
 ```
 Following the clue, I found a GOST online decoder and got a password of sorts [Task 2] #5.
 ```
-m*******r**********b
+m-------r----------b
 ```
 
-I tried this password on the binarycodepixabay.jpg image and it worked. I then stopped my Stegcracker, which had been running for the hour, and accessed the encrypted details from the foldersecrettext.txt. That will teach me!
+I tried this password on the binarycodepixabay.jpg image and it worked. I then stopped my Stegcracker, which I had started earlier and had been running for the past hour, and then accessed the encrypted details from the foldersecrettext.txt. That will teach me!
 
-This gave me some interesting details.
+This gave some interesting details.
 ```
-username:**r***
-password: *****************************************************
+username:--r---
+password: -------------------------------------------------
 ```
 The password needed some more work but was easily completed by Cyber Chef.
 
@@ -117,9 +116,9 @@ The password needed some more work but was easily completed by Cyber Chef.
 
 Now we have a username and password we can log into the server [Task 2] #6:
 ```
-ssh **r***@10.10.86.214 -p 6498
+ssh --r---@10.10.86.214 -p 6498
 ```
-Remember we are not using the default port.
+*Remember we are not using the default port.*
 
 ```
 ~/CTF/tryhackme/easy_peasy$ ssh **r***@10.10.86.214 -p 6498
@@ -141,28 +140,27 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 !!!!!!!!!!!!!!!!!!I WARN YOU !!!!!!!!!!!!!!!!!!!!
 boring@kral4-PC:~$ 
 ```
-So it looks as though we are on a timer. First, I quickly check for flags.
+So it looks as though we are on a timer. If that is the case, I quickly check for flags.
 
 The first flag I find is the user flag:
 ```
-User Flag But It Seems Wrong Like It`s Rotated Or Something
-s**t{***vgf**********}
+User Flag But It Seems Wrong Like It's Rotated Or Something
+s--t{---vgf----------}
 ```
-
-"Rotated" could be a Caesar cipher (ROT13 isteh one I tried) whhich gave us the answer to [Task 2] #7
+"Rotated" could be a Caesar cipher (ROT13 is the one I tried) which gave us the answer to [Task 2] #7
 
 Still searching with the user details I check out all the website files, including the robots.txt, which gives some additional comments:
 ```
 User-Agent:*
 Disallow:/
 Robots Not Allowed
-User-Agent:a**********510e5********0763b250
+User-Agent:a----------510e5--------0763b250
 Allow:/
 This Flag Can Enter But Only This Flag No More Exceptions
 ```
-I tried setting it up as a cookie with User-Agent, but that didn't do anything that I could see from a webpage front, so Itried a number of differet ways to see if I could check its hash. In the end I used https://md5hashing.net/ which gave me the answer to [Task 2] #2. That was almost the death of me!!
+I tried setting it up as a cookie with User-Agent, but that didn't do anything that I could see from a webpage front, so I tried a number of differet ways to see if I could check its hash. In the end I used https://md5hashing.net/ which gave me the answer to [Task 2] #2. That was almost the death of me!!
 
-I also managed to get flag three in a similar manner but just reading the index.html files of the main folders (though I found three by reading from the console.)
+I also managed to get flag three in a similar manner but just reading the index.html files of the main folders (though I found number three by reading from the console.)
 
 ## crontab
 
@@ -186,7 +184,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 #
 * *    * * *   root    cd /var/www/ && sudo bash .mysecretcronjob.sh
 ```
-
 If we read the file, it tells us that it will actually run as root.
 ```
 boring@kral4-PC:~$ cat /var/www/.mysecretcronjob.sh 
@@ -221,10 +218,12 @@ uid=0(root) gid=0(root) groups=0(root)
 With root we now look for the final flag which we find in the usual place, just hidden!!
 
 ```
-flag{6*******************649********5}
+flag{6-------------------649--------5}
 ```
 
 I loved this room. Although I am a beginner, I actually got through this room without any write ups. It is true, the more you do, the better you become!
+
+My first but hopefully not my last!!
 
 
 
