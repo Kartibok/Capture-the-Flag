@@ -199,3 +199,5 @@ bash -p
 And now we have root permissions in the shell. Again use to read the flag file.
 
 I really enjoyed this room and completing a write up. Hopefully I will become more proficient at both!!
+
+![](/images/Karti.png)
