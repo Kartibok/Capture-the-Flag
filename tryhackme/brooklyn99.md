@@ -114,3 +114,5 @@ Enjoy!!
 ```
 The comments in the room suggest a few ways to get root, so I will be coming back to try other ways!!
 Great room for begineers like myself as well as being a great TV programme!!
+
+![](/images/Karti.png)
