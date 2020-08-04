@@ -225,6 +225,6 @@ I loved this room. Although I am a beginner, I actually got through this room wi
 
 My first but hopefully not my last!!
 
-
+![](/images/Karti.png)
 
 
