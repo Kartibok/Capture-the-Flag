@@ -1,4 +1,5 @@
-# Agen Sudo CTF
+<a href="https://tryhackme.com/room/agentsudoctf"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
+# Agent Sudo CTF
 
 ## nmap
 ```
