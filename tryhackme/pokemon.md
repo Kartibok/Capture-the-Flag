@@ -1,6 +1,6 @@
-# pokemon CTF
+<a href="https://tryhackme.com/room/pokemon"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
 
-IP = 10.10.10.88
+# pokemon CTF
 
 ## nmap
 
@@ -69,7 +69,7 @@ If we view source, we find two areas of interest: a script and a possible userna
     	console.log(original);
     </script>
 ```
-My scripting is not so hot, other than it showing me a list of possible pokemon. That might come in handy later. From nmap we know that there is an ssh port. So lets try that with the possible username and password.
+My scripting is not so hot, other than it showing me a list of possible pokemon. That might come in handy later. From nmap we know that there is an ssh port. So lets try that with the possible username and password that we may have found.
 ```
 <pokemon>:<hack_the_pokemon>
         	<!--(Check console for extra surprise!)-->
@@ -194,7 +194,7 @@ drwxr-xr-x  3 pokemon pokemon 4.0K Jun 22 23:10 Videos
 -rw-------  1 pokemon pokemon   82 Aug 12 01:15 .xsession-errors
 -rw-------  1 pokemon pokemon 1.3K Aug 11 13:21 .xsession-errors.old
 ```
-We now see another home folder, ash, which we have no access, though the username is teh same as teh coded C++ piece, followed by a new text document belonging to root - roots-pokemon.txt. 
+We now see another home folder, ash, which we have no access, though the username is the same as the coded C++ piece, followed by a new text document belonging to root - roots-pokemon.txt. 
 
 Before we continue with Ash, lets check out the www folders as gobuster never picked up anything exciting.
 ```
@@ -254,7 +254,7 @@ ash@root:/home$ id
 uid=1001(ash) gid=1001(ash) groups=1001(ash),27(sudo)
 ash@root:/home$ 
 ```
-OK So we now have access to Ash's area and we can see he has sudo privilages. Lets look around first. Looks like we can't use cd as a command so lets ls everything as root.
+OK So we now have access to Ash's area and we can see he has sudo privilages. Lets look around first. Looks like we can't use cd as a root command so lets ls everything as root.
 ```
 ash@root:/home$ sudo ls -lAh *
 -rwx------  1 ash     root       8 Jun 22 23:21 roots-pokemon.txt
@@ -307,7 +307,7 @@ This looks like it could be the answer to root's favorite pokemon!!
 
 So now we have his favorite, the grass and water pokemon, so we just need to find the last one - the fire pokemon.
 
-I couldn't find anythingthat jumped out so I tried a search with fire as root and for a txt file and was lucky first time.
+I couldn't find anything that jumped out so I tried a search with fire as root and was a txt file. Lucky first time!
 
 ```
 ash@root:/$ sudo find / -name fire*.txt 2>/dev/null
@@ -319,4 +319,10 @@ ash@root:/$ echo UDBrM20wbntDaGFybWFuZGVyfQ==a | base64 --decode
 P0k3m0n{Charmander}base64: invalid input
 ash@root:/$ 
 ```
-So decoding this gave us the last pokemon. I thoroughy enjoyed this CTF and look forward  to others that are brought out.
+So looking at this as seeing the == added spaces I used base64 to decode, giving us the last pokemon. 
+
+Learning points I gainsed from this? Read everything and document as you go!!
+
+I thoroughy enjoyed this CTF and look forward to any others that are brought out by [GhostlyPy](https://tryhackme.com/p/GhostlyPy)
+
+![](/images/Karti.png)
