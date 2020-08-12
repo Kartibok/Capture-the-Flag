@@ -71,40 +71,40 @@ If we view source, we find two areas of interest: a script and a possible userna
 ```
 My scripting is not so hot, other than it showing me a list of possible pokemon. That might come in handy later. From nmap we know that there is an ssh port. So lets try that with the possible username and password that we may have found.
 ```
-<pokemon>:<hack_the_pokemon>
+<---oops--->:<----oops---->
         	<!--(Check console for extra surprise!)-->
 ```
 ## ssh
 So using the password and username we get access to the server. Let's have a look around.
 ```
-pokemon@root:~$ ls
+@root:~$ ls
 Desktop  Documents  Downloads  examples.desktop  Music  Pictures  Public  Templates  Videos
-pokemon@root:~$ cd Desktop
-pokemon@root:~/Desktop$ ls
+@root:~$ cd Desktop
+@root:~/Desktop$ ls
 P0kEmOn.zip
-pokemon@root:~/Desktop$ unzip P0kEmOn.zip 
+@root:~/Desktop$ unzip P0kEmOn.zip 
 Archive:  P0kEmOn.zip
    creating: P0kEmOn/
   inflating: P0kEmOn/grass-type.txt  
-pokemon@root:~/Desktop$ cd P0kEmOn/
-pokemon@root:~/Desktop/P0kEmOn$ ls
+@root:~/Desktop$ cd P0kEmOn/
+@root:~/Desktop/P0kEmOn$ ls
 grass-type.txt
-pokemon@root:~/Desktop/P0kEmOn$ cat grass-type.txt 
-50 6f 4b 65 4d 6f 4e 7b 42 75 6c 62 61 73 61 75 72 7d
+@root:~/Desktop/P0kEmOn$ cat grass-type.txt 
+50 6f ---oops--- 72 7d
 ```
 Starting with Desktop we find a zip file. Unzip that and we get a folder with a text file. This gives us what appears to be a hex code. Using the GCHQ Cyberchef we find it is the first flag. Using the Magic operation within Cyberchef, it confirms that it is more likely to be "From Hex" or "From Hexdump."
 ```
-PoKeMoN{Bulbasaur}
+---oops---
 ```
 Lets check the rest of the folders in his home drive.
 ```
-pokemon@root:~$ ls -lAh *
--rw-r--r-- 1 pokemon pokemon 8.8K Jun 22 19:36 examples.desktop
+@root:~$ ls -lAh *
+-rw-r--r-- 1 --- --- 8.8K Jun 22 19:36 examples.desktop
 
 Desktop:
 total 8.0K
-drwxrwxr-x 2 pokemon pokemon 4.0K Jun 22 22:37 P0kEmOn
--rw-rw-r-- 1 pokemon pokemon  383 Jun 22 22:40 P0kEmOn.zip
+drwxrwxr-x 2 --- --- 4.0K Jun 22 22:37 P0kEmOn
+-rw-rw-r-- 1 --- --- 383 Jun 22 22:40 P0kEmOn.zip
 
 Documents:
 total 0
@@ -126,32 +126,32 @@ total 0
 
 Videos:
 total 4.0K
-drwxrwxr-x 3 pokemon pokemon 4.0K Jun 22 23:10 Gotta
+drwxrwxr-x 3 --- --- 4.0K Jun 22 23:10 Gotta
 ```
 Looks like we have something in his Video folder. More files!!
 ```
-pokemon@root:~$ cd Videos/Gotta/
-pokemon@root:~/Videos/Gotta$ ls
+@root:~$ cd Videos/Gotta/
+@root:~/Videos/Gotta$ ls
 Catch
-pokemon@root:~/Videos/Gotta$ cd Catch/
-pokemon@root:~/Videos/Gotta/Catch$ ls
+@root:~/Videos/Gotta$ cd Catch/
+@root:~/Videos/Gotta/Catch$ ls
 Them
-pokemon@root:~/Videos/Gotta/Catch$ cd Them/
-pokemon@root:~/Videos/Gotta/Catch/Them$ ls
+@root:~/Videos/Gotta/Catch$ cd Them/
+@root:~/Videos/Gotta/Catch/Them$ ls
 ALL!
-pokemon@root:~/Videos/Gotta/Catch/Them$ cd ALL\!/
-pokemon@root:~/Videos/Gotta/Catch/Them/ALL!$ ls
+@root:~/Videos/Gotta/Catch/Them$ cd ALL\!/
+@root:~/Videos/Gotta/Catch/Them/ALL!$ ls
 Could_this_be_what_Im_looking_for?.cplusplus
-pokemon@root:~/Videos/Gotta/Catch/Them/ALL!$ file Could_this_be_what_Im_looking_for\?.cplusplus 
+@root:~/Videos/Gotta/Catch/Them/ALL!$ file Could_this_be_what_Im_looking_for\?.cplusplus 
 Could_this_be_what_Im_looking_for?.cplusplus: C source, ASCII text
-pokemon@root:~/Videos/Gotta/Catch/Them/ALL!$ cat Could_this_be_what_Im_looking_for\?.cplusplus 
+@root:~/Videos/Gotta/Catch/Them/ALL!$ cat Could_this_be_what_Im_looking_for\?.cplusplus 
 ```
 Right the folder structure follows the quote from the game and after some research, the file style is C++.
 ```
 # include <iostream>
 
 int main() {
-	std::cout << "ash : pikapika"
+	std::cout << "--- : ---"
 	return 0;
 }
 ```
@@ -159,50 +159,50 @@ The format however is similar to the pokemon username and password we had from t
 
 Lets continue the enumeration of the /home folder.
 ```
-pokemon@root:/home$ ls -lAh *
--rwx------  1 ash     root       8 Jun 22 23:21 roots-pokemon.txt
+@root:/home$ ls -lAh *
+-rwx------  1 ---     root       8 Jun 22 23:21 roots-pokemon.txt
 
-ls: cannot open directory 'ash': Permission denied
-pokemon:
+ls: cannot open directory '---': Permission denied
+------:
 total 112K
--rw-------  1 pokemon pokemon    0 Aug 11 11:17 .bash_history
--rw-r--r--  1 pokemon pokemon  257 Aug 11 11:09 .bash_logout
--rw-r--r--  1 pokemon pokemon 4.0K Aug 12 01:26 .bashrc
-drwx------ 15 pokemon pokemon 4.0K Aug 12 01:26 .cache
-drwx------  3 pokemon pokemon 4.0K Jun 22 20:00 .compiz
-drwx------ 15 pokemon pokemon 4.0K Jun 22 19:58 .config
-drwx------  3 root    root    4.0K Jun 22 22:50 .dbus
-drwxr-xr-x  3 pokemon pokemon 4.0K Aug 12 01:27 Desktop
--rw-r--r--  1 pokemon pokemon   25 Jun 22 22:56 .dmrc
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Documents
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Downloads
--rw-r--r--  1 pokemon pokemon 8.8K Jun 22 19:36 examples.desktop
-drwx------  2 pokemon pokemon 4.0K Jun 22 19:46 .gconf
-drwx------  3 pokemon pokemon 4.0K Aug 12 01:15 .gnupg
--rw-------  1 pokemon pokemon 3.4K Aug 12 01:15 .ICEauthority
-drwx------  3 pokemon pokemon 4.0K Jun 22 19:46 .local
-drwx------  5 pokemon pokemon 4.0K Jun 22 19:52 .mozilla
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Music
-drwxrwxr-x  2 pokemon pokemon 4.0K Aug 11 11:04 .nano
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Pictures
--rw-r--r--  1 pokemon pokemon  655 Jun 22 19:36 .profile
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Public
--rw-r--r--  1 pokemon pokemon    0 Jun 22 19:47 .sudo_as_admin_successful
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Templates
-drwxr-xr-x  3 pokemon pokemon 4.0K Jun 22 23:10 Videos
--rw-------  1 pokemon pokemon   49 Aug 12 01:15 .Xauthority
--rw-------  1 pokemon pokemon   82 Aug 12 01:15 .xsession-errors
--rw-------  1 pokemon pokemon 1.3K Aug 11 13:21 .xsession-errors.old
+-rw-------  1 --- ---    0 Aug 11 11:17 .bash_history
+-rw-r--r--  1 --- ---  257 Aug 11 11:09 .bash_logout
+-rw-r--r--  1 --- --- 4.0K Aug 12 01:26 .bashrc
+drwx------ 15 --- --- 4.0K Aug 12 01:26 .cache
+drwx------  3 --- --- 4.0K Jun 22 20:00 .compiz
+drwx------ 15 --- --- 4.0K Jun 22 19:58 .config
+drwx------  3 --- ---    4.0K Jun 22 22:50 .dbus
+drwxr-xr-x  3 --- --- 4.0K Aug 12 01:27 Desktop
+-rw-r--r--  1 --- ---   25 Jun 22 22:56 .dmrc
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Documents
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Downloads
+-rw-r--r--  1 --- --- 8.8K Jun 22 19:36 examples.desktop
+drwx------  2 --- --- 4.0K Jun 22 19:46 .gconf
+drwx------  3 --- --- 4.0K Aug 12 01:15 .gnupg
+-rw-------  1 --- --- 3.4K Aug 12 01:15 .ICEauthority
+drwx------  3 --- --- 4.0K Jun 22 19:46 .local
+drwx------  5 --- --- 4.0K Jun 22 19:52 .mozilla
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Music
+drwxrwxr-x  2 --- --- 4.0K Aug 11 11:04 .nano
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Pictures
+-rw-r--r--  1 --- ---  655 Jun 22 19:36 .profile
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Public
+-rw-r--r--  1 --- ---    0 Jun 22 19:47 .sudo_as_admin_successful
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Templates
+drwxr-xr-x  3 --- --- 4.0K Jun 22 23:10 Videos
+-rw-------  1 --- ---   49 Aug 12 01:15 .Xauthority
+-rw-------  1 --- ---   82 Aug 12 01:15 .xsession-errors
+-rw-------  1 --- --- 1.3K Aug 11 13:21 .xsession-errors.old
 ```
-We now see another home folder, ash, which we have no access, though the username is the same as the coded C++ piece, followed by a new text document belonging to root - roots-pokemon.txt. 
+We now see another home folder, ---, which we have no access, though the username is the same as the coded C++ piece, followed by a new text document belonging to root - roots-pokemon.txt. 
 
-Before we continue with Ash, lets check out the www folders as gobuster never picked up anything exciting.
+Before we continue with ---, lets check out the www folders as gobuster never picked up anything exciting.
 ```
-pokemon@root:/home$ cd /var/www/html/
-pokemon@root:/var/www/html$ ls
+@root:/home$ cd /var/www/html/
+@root:/var/www/html$ ls
 index.html  water-type.txt
-pokemon@root:/var/www/html$ cat water-type.txt 
-Ecgudfxq_EcGmP{Ecgudfxq}
+@root:/var/www/html$ cat water-type.txt 
+------{----}
 ```
 So another flag, again encrpyed. 
 
@@ -210,16 +210,16 @@ This time it looks like a Caesar Cypher. I tried ROT13 using the same Cyberchef 
 
 
 ## privalage escalation 
-Let's see what we can do with pokemon , either go up or sideways to view Ash's home drive.
+Let's see what we can do with --- , either go up or sideways to view --- home drive.
 
 ```
-pokemon@root:/home$ sudo -l
-[sudo] password for pokemon: 
-Sorry, user pokemon may not run sudo on root.
+@root:/home$ sudo -l
+[sudo] password for ---: 
+Sorry, user --- may not run sudo on root.
 ```
-Looks like no Sudo for Pokemon. What about SUID files:
+Looks like no Sudo for ---. What about SUID files:
 ```
-pokemon@root:/home$ find / -perm -4000 2>/dev/null
+@root:/home$ find / -perm -4000 2>/dev/null
 /bin/umount
 /bin/ping6
 /bin/ping
@@ -242,66 +242,66 @@ pokemon@root:/home$ find / -perm -4000 2>/dev/null
 /usr/lib/policykit-1/polkit-agent-helper-1
 /usr/sbin/pppd
 ```
-Nothing jumps out for me at the moment, so lets try the possible password for Ash we found in the C++ file.
+Nothing jumps out for me at the moment, so lets try the possible password for --- we found in the C++ file.
 ```
-pokemon@root:/home$ su ash
+@root:/home$ su ash
 Password: 
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
 bash: /home/ash/.bashrc: Permission denied
-ash@root:/home$ id
-uid=1001(ash) gid=1001(ash) groups=1001(ash),27(sudo)
-ash@root:/home$ 
+@root:/home$ id
+uid=1001(---) gid=1001(---) groups=1001(---),27(sudo)
+@root:/home$ 
 ```
-OK So we now have access to Ash's area and we can see he has sudo privilages. Lets look around first. Looks like we can't use cd as a root command so lets ls everything as root.
+OK So we now have access to --- area and we can see he has sudo privilages. Lets look around first. Looks like we can't use cd as a root command so lets ls everything as root.
 ```
-ash@root:/home$ sudo ls -lAh *
--rwx------  1 ash     root       8 Jun 22 23:21 roots-pokemon.txt
+@root:/home$ sudo ls -lAh *
+-rwx------  1 ---     root       8 Jun 22 23:21 roots-pokemon.txt
 
-ash:
+---:
 total 16K
 drwx------ 3 root root 4.0K Jun 24 14:14 .cache
 drwx------ 5 root root 4.0K Jun 24 14:14 .config
 drwx------ 3 root root 4.0K Jun 24 14:13 .dbus
 drwxr-xr-x 3 root root 4.0K Jun 24 14:14 .local
 
-pokemon:
+---:
 total 112K
--rw-------  1 pokemon pokemon    0 Aug 11 11:17 .bash_history
--rw-r--r--  1 pokemon pokemon  257 Aug 11 11:09 .bash_logout
--rw-r--r--  1 pokemon pokemon 4.0K Aug 12 01:26 .bashrc
-drwx------ 15 pokemon pokemon 4.0K Aug 12 01:26 .cache
-drwx------  3 pokemon pokemon 4.0K Jun 22 20:00 .compiz
-drwx------ 15 pokemon pokemon 4.0K Jun 22 19:58 .config
+-rw-------  1 --- ---    0 Aug 11 11:17 .bash_history
+-rw-r--r--  1 --- ---  257 Aug 11 11:09 .bash_logout
+-rw-r--r--  1 --- --- 4.0K Aug 12 01:26 .bashrc
+drwx------ 15 --- --- 4.0K Aug 12 01:26 .cache
+drwx------  3 --- --- 4.0K Jun 22 20:00 .compiz
+drwx------ 15 --- --- 4.0K Jun 22 19:58 .config
 drwx------  3 root    root    4.0K Jun 22 22:50 .dbus
-drwxr-xr-x  3 pokemon pokemon 4.0K Aug 12 01:27 Desktop
--rw-r--r--  1 pokemon pokemon   25 Jun 22 22:56 .dmrc
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Documents
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Downloads
--rw-r--r--  1 pokemon pokemon 8.8K Jun 22 19:36 examples.desktop
-drwx------  2 pokemon pokemon 4.0K Jun 22 19:46 .gconf
-drwx------  3 pokemon pokemon 4.0K Aug 12 01:15 .gnupg
--rw-------  1 pokemon pokemon 3.4K Aug 12 01:15 .ICEauthority
-drwx------  3 pokemon pokemon 4.0K Jun 22 19:46 .local
-drwx------  5 pokemon pokemon 4.0K Jun 22 19:52 .mozilla
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Music
-drwxrwxr-x  2 pokemon pokemon 4.0K Aug 11 11:04 .nano
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Pictures
--rw-r--r--  1 pokemon pokemon  655 Jun 22 19:36 .profile
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Public
--rw-r--r--  1 pokemon pokemon    0 Jun 22 19:47 .sudo_as_admin_successful
-drwxr-xr-x  2 pokemon pokemon 4.0K Jun 22 19:46 Templates
-drwxr-xr-x  3 pokemon pokemon 4.0K Jun 22 23:10 Videos
--rw-------  1 pokemon pokemon   49 Aug 12 01:15 .Xauthority
--rw-------  1 pokemon pokemon   82 Aug 12 01:15 .xsession-errors
--rw-------  1 pokemon pokemon 1.3K Aug 11 13:21 .xsession-errors.old
+drwxr-xr-x  3 --- --- 4.0K Aug 12 01:27 Desktop
+-rw-r--r--  1 --- ---   25 Jun 22 22:56 .dmrc
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Documents
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Downloads
+-rw-r--r--  1 --- --- 8.8K Jun 22 19:36 examples.desktop
+drwx------  2 --- --- 4.0K Jun 22 19:46 .gconf
+drwx------  3 --- --- 4.0K Aug 12 01:15 .gnupg
+-rw-------  1 --- --- 3.4K Aug 12 01:15 .ICEauthority
+drwx------  3 --- --- 4.0K Jun 22 19:46 .local
+drwx------  5 --- --- 4.0K Jun 22 19:52 .mozilla
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Music
+drwxrwxr-x  2 --- --- 4.0K Aug 11 11:04 .nano
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Pictures
+-rw-r--r--  1 --- ---  655 Jun 22 19:36 .profile
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Public
+-rw-r--r--  1 --- ---    0 Jun 22 19:47 .sudo_as_admin_successful
+drwxr-xr-x  2 --- --- 4.0K Jun 22 19:46 Templates
+drwxr-xr-x  3 --- --- 4.0K Jun 22 23:10 Videos
+-rw-------  1 --- ---   49 Aug 12 01:15 .Xauthority
+-rw-------  1 --- ---   82 Aug 12 01:15 .xsession-errors
+-rw-------  1 --- --- 1.3K Aug 11 13:21 .xsession-errors.old
 
 ```
-Nothing showing within Ash's home drive so lets read the roots-pokemon.txt
+Nothing showing within --- home drive so lets read the roots-pokemon.txt
 ```
-ash@root:/home$ sudo cat roots-pokemon.txt 
-Pikachu!
+@root:/home$ sudo cat roots-pokemon.txt 
+-----
 ```
 This looks like it could be the answer to root's favorite pokemon!!
 
@@ -310,14 +310,14 @@ So now we have his favorite, the grass and water pokemon, so we just need to fin
 I couldn't find anything that jumped out so I tried a search with fire as root and was a txt file. Lucky first time!
 
 ```
-ash@root:/$ sudo find / -name fire*.txt 2>/dev/null
-/etc/why_am_i_here?/fire-type.txt
-ash@root:/$ cat /etc/why_am_i_here\?/fire-type.txt 
-UDBrM20wbntDaGFybWFuZGVyfQ==a
+@root:/$ sudo find / -name fire*.txt 2>/dev/null
+----------
+@root:/$ cat /etc/why_am_i_here\?/fire-type.txt 
+-------------------------------
 
-ash@root:/$ echo UDBrM20wbntDaGFybWFuZGVyfQ==a | base64 --decode
-P0k3m0n{Charmander}base64: invalid input
-ash@root:/$ 
+@root:/$ echo ------------------ | base64 --decode
+---{---}base64: invalid input
+@root:/$ 
 ```
 So looking at this as seeing the == added spaces I used base64 to decode, giving us the last pokemon. 
 
