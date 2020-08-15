@@ -183,3 +183,9 @@ Checking with the username and password I also tried it on SSH and it worked.
 My second completed - on my own!!
 
 I must be getting better :)
+
+Regards
+
+K
+
+![](/images/Karti.png)
