@@ -325,4 +325,8 @@ Learning points I gainsed from this? Read everything and document as you go!!
 
 I thoroughy enjoyed this CTF and look forward to any others that are brought out by [GhostlyPy](https://tryhackme.com/p/GhostlyPy)
 
+Regards
+
+K
+
 ![](/images/Karti.png)
