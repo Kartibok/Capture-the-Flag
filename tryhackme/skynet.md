@@ -285,8 +285,9 @@ From here, just a matter of moments until a root shell opened and I was able to 
 
 A really enjoyable room, that took me a while. I did also find a possible exploit when we logged into the CMS as there was a password reset link that was hidden. I neet to do some more work on my web side, but I felt that as I had access to Miles's emails (and verified I could send and receive) that this maybe a valid vulnerabilty. I will definately come back to try that piece of the puzzle again.
 
+Regards
+
+K
+
 ![](/images/Karti.png)
-
-
-
 
