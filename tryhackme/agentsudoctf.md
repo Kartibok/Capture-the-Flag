@@ -316,3 +316,9 @@ karti@kali-pt:~/CTF/tryhackme/agentsudo/_cutie.png.extracted$ /usr/sbin/john --s
 
 ```
 I now get the hash and as it has already cracked it I use the --show to view passwords stopred for that file.
+
+Regards
+
+K
+
+![](/images/Karti.png)
