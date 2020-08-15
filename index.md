@@ -2,9 +2,9 @@
 
 ![](/images/Karti.png)
 
-Welcome to my attempts at learning penetration testing, python, web development, and finally Capture the Flag.
+Welcome to my attempts at not only learning penetration testing, python, web development, but my latest and greatest, all interest grabbing - Capture the Flag.
 
-The links below will take you to each of the specific write ups for the challenges I have completed.
+The links below will take you to the challenges that I have created specific write ups for. As I get better at logging my work, more will be added.
  
 ## tryhackme
 
