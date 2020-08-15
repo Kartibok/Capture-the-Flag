@@ -243,9 +243,9 @@ The second file is more forthcoming.
 /---------
 ```
 Now we have what looks like a new folder and as we see gives us a login form.
-
-![](/images/tartarus_login.png)
-
+<br>
+<img src="../images/tartarus_login.png" alt="main window" width="400"/>
+<br>
 So we have a login form with a set of usernames and passwords. Lets use hydra again and see what we come up with. In the meantime, I ran a gobuster script for the hidden folder:
 ```
 ~/CTF/tryhackme/tartarus$ gobuster dir -u 10.10.218.247/------------ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,txt,html
@@ -288,13 +288,13 @@ Two things that I had issues with here. I tend to copy and paste from my notes u
 ## login
 Lets see what they can allow us to do.
 Looks like we can add some files. Lets see if it will allow a php reverse shell exploit. (I use the one from pentestmonkey)
-
-![](/images/tartarus_upload.png)
-
+<br>
+<img src="../images/tartarus_upload.png" alt="main window" width="400"/>
+<br>
 Now we have successfully uploaded it and gobuster has now given us the images folder, we get some more information. When we view the folder called uploads and we can see two things.
-
-![](/images/tartarus_index.png)
-
+<br>
+<img src="../images/tartarus_index.png" alt="main window" width="400"/>
+<br>
 I then set up a local netcat session on port 4567 and then clicked the exploit.php. This now opens a shell on the target host.
 ```
 karti@kali-pt:~/CTF/tryhackme/tartarus$ nc -lnvp 4567
