@@ -244,7 +244,7 @@ The second file is more forthcoming.
 ```
 Now we have what looks like a new folder and as we see gives us a login form.
 <br>
-<img src="../images/tartarus_login.png" alt="main window" width="400"/>
+<img src="../images/tartarus_login.png" alt="main window" width="300"/>
 <br>
 So we have a login form with a set of usernames and passwords. Lets use hydra again and see what we come up with. In the meantime, I ran a gobuster script for the hidden folder:
 ```
@@ -289,11 +289,11 @@ Two things that I had issues with here. I tend to copy and paste from my notes u
 Lets see what they can allow us to do.
 Looks like we can add some files. Lets see if it will allow a php reverse shell exploit. (I use the one from pentestmonkey)
 <br>
-<img src="../images/tartarus_upload.png" alt="main window" width="400"/>
+<img src="../images/tartarus_upload.png" alt="main window" width="200"/>
 <br>
 Now we have successfully uploaded it and gobuster has now given us the images folder, we get some more information. When we view the folder called uploads and we can see two things.
 <br>
-<img src="../images/tartarus_index.png" alt="main window" width="400"/>
+<img src="../images/tartarus_index.png" alt="main window" width="500"/>
 <br>
 I then set up a local netcat session on port 4567 and then clicked the exploit.php. This now opens a shell on the target host.
 ```
