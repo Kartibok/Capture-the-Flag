@@ -242,7 +242,7 @@ The second file is more forthcoming.
 ~/CTF/tryhackme/tartarus$ cat yougotgoodeyes.txt 
 /---------
 ```
-Now we have what looks like a new folder.
+Now we have what looks like a new folder and as we see gives us a login form.
 
 ![](/images/tartarus_login.png)
 
