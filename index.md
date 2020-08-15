@@ -14,6 +14,7 @@ The links below will take you to each of the write ups for the tryhackme.com roo
 * [Easy Peasy CTF](/tryhackme/easy_peasy.md)
 * [Pokemon CTF](/tryhackme/pokemon.md)
 * [Skynet CTF](/tryhackme/skynet.md)
+* [Tartarus CTF](/tryhackme/tartarus.md)
 * [Vulnversity CTF](/tryhackme/vulnversity.md)
 
 
