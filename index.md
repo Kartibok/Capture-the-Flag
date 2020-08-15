@@ -4,9 +4,9 @@
 
 Welcome to my attempts at learning penetration testing, python, web development, and finally Capture the Flag.
 
-The links below will take you to each of the write ups for the tryhackme.com rooms and challenges.
+The links below will take you to each of the specific write ups for the challenges I have completed.
  
-## Challenges
+## tryhackme
 
 * [Agent Sudo CTF](/tryhackme/agentsudoctf.md)
 * [Basic Penetration CTF](/tryhackme/basic_pentesting.md)
