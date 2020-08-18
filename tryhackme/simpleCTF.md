@@ -1,3 +1,5 @@
+<a href="https://tryhackme.com/room/easyctf"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
+
 # simpleCTF
 
 A beginner level CTF that brings out the best in new starters.
@@ -172,7 +174,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ```
 Lets have a look at the admin directory.
 
-INSERT CMS_LOGIN_IMAGE HERE
+<img src="../images/simpleCTF_CMS_login.png" alt="main window" width="300"/>
 
 Lets try the searchsploit for any Simple CMS issues that we can utilise. 
 
@@ -322,5 +324,5 @@ Regards
 
 K
 
-
+![](/images/Karti.png)
 
