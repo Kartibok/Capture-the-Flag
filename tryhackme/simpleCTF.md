@@ -318,7 +318,7 @@ root.txt
 ```
 And there we have it. Nice room especially as it was one of my first. Pity I had some issues with the exploit running in python3. I'm sure that as I improve, these little annoyances will be less so!!
 
-Thanks to ![MrSeth6797](https://tryhackme.com/p/MrSeth6797) for a great room.
+Thanks to [MrSeth6797](https://tryhackme.com/p/MrSeth6797) for a great room.
 
 Regards
 
