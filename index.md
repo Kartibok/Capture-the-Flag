@@ -1,6 +1,6 @@
 # Capture the Flag
 
-![](/images/Karti.png)
+<script src="https://tryhackme.com/badge/65208"></script>
 
 Welcome to my attempts at not only learning penetration testing, python, web development, but my latest and greatest, all interest grabbing - Capture the Flag.
 
