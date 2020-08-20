@@ -7,7 +7,7 @@ The links below will take you to the challenges  where I have created specific w
 As I get better at logging my work, more will be added and assuredly of better content!!
 
 <script src="https://tryhackme.com/badge/65208"></script>
-<br>
+
 ## tryhackme
 * [Agent Sudo CTF](/tryhackme/agentsudoctf.md)
 * [Basic Penetration CTF](/tryhackme/basic_pentesting.md)
