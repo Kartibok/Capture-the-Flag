@@ -1,7 +1,6 @@
 # Capture the Flag
-
 <script src="https://tryhackme.com/badge/65208"></script>
-
+<br>
 Welcome to my attempts at not only learning penetration testing, python, web development, but my latest and greatest, all interest grabbing - Capture the Flag.
 
 The links below will take you to the challenges  where I have created specific writeups.
