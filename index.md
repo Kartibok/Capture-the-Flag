@@ -11,12 +11,12 @@ As I get better at logging my work, more will be added and assuredly of better c
 ## tryhackme
 * [Agent Sudo CTF](/tryhackme/agentsudoctf.md)
 * [Basic Penetration CTF](/tryhackme/basic_pentesting.md)
-* [Brooklyn 99 CTF](/tryhackme/brooklyn99.md)
-* [Easy Peasy CTF](/tryhackme/easy_peasy.md)
-* [Pokemon CTF](/tryhackme/pokemon.md)
-* [Simple CTF](/tryhackme/simpleCTF.md)
+* [Brooklyn 99 CTF](/tryhackme/brooklyn99.md) *Accepted on thm*
+* [Easy Peasy CTF](/tryhackme/easy_peasy.md) *Accepted on thm*
+* [Pokemon CTF](/tryhackme/pokemon.md) *Accepted on thm*
+* [Simple CTF](/tryhackme/simpleCTF.md) *Accepted on thm*
 * [Skynet CTF](/tryhackme/skynet.md)
-* [Tartarus CTF](/tryhackme/tartarus.md)
+* [Tartarus CTF](/tryhackme/tartarus.md) *Accepted on thm*
 * [Vulnversity CTF](/tryhackme/vulnversity.md)
 
 
