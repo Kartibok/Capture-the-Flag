@@ -448,4 +448,4 @@ Thanks csenox :)
 
 K
 
-![](/images/Karti.png)
+<script src="https://tryhackme.com/badge/65208"></script>
