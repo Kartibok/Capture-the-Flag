@@ -18,5 +18,5 @@ As I get better at logging my work, more will be added and assuredly of better c
 * [Skynet CTF](/tryhackme/skynet.md)
 * [Tartarus CTF](/tryhackme/tartarus.md) *Accepted on thm*
 * [Vulnversity CTF](/tryhackme/vulnversity.md)
-
+* [Wgel CTF](/tryhackme/wgelCTF.md)
 
