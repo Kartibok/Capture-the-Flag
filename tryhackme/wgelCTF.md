@@ -171,7 +171,7 @@ jessie@CorpOne:~/Documents$ cat user_flag.txt
 <insert-flag-here> **[Task1 #1]**
 
 ```
-We are in. Lets check out user jessie's permissions with a sudo -l
+We are in, and a quick search in the usual places gets us the user flag. Lets check out user jessie's permissions with a sudo -l
 
 ```
 jessie@CorpOne:~/Documents$ sudo -l
