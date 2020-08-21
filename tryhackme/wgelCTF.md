@@ -1,9 +1,8 @@
+<a href="https://tryhackme.com/room/wgelctf"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
+
 # wgelCTF
-
-IP = 10.10.15.115
-
+A new room for beginners, of which I am one.... created by [MrSeth6797](https://tryhackme.com/p/MrSeth6797)
 ## nmap
-
 Initial
 ```
 ~/CTF/tryhackme/wgelCTF$ nmap -A -sC -sV -oN nmap/initial $IP
@@ -293,10 +292,10 @@ root@CorpOne:/root#
 
 This was a really enjoyable room, where I learnt that I should mix and match my gobuster wordfiles. For the past few months I have been using the dirbuster medium text file, but here after finding nothing and trying to hydra Jessie's SSH account with rockyou.txt made me look elsewhere. The /usr/share/wordlists/dirb/common.txt is now another tool in my armoury.
 
-Thanks go to ![MrSeth6797](https://tryhackme.com/p/MrSeth6797) for this room. Much appreciated.
+Thanks go to MrSeth6797 for this room. Much appreciated.
 
 Regards
 
 K
 
-
+<script src="https://tryhackme.com/badge/65208"></script>
