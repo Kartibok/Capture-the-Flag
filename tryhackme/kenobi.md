@@ -290,9 +290,10 @@ So when we look at the admin.html, we find a full page gif telling us it is a tr
 ## where to now
 Looking at what we know. We have:
 
-1. A username kenobi
-1. Location of his ssh id_rsa
+1. A username kenobi.
+1. Location of his ssh id_rsa.
 1. An ftp application.
+1. Location of the anonymous share.
 
 Next steps - lets check out the ProFTPD for any exploits.
 
@@ -518,7 +519,7 @@ I thoroughly enjoyed this walkthrough room, especially coming back to do this wr
 
 It is definitely more noticeable that the more I do these room, the more I learn and the easier it becomes.
 
-Thanks go to ![tryhackme](https://tryhackme.com/p/tryhackme) for this room. Much appreciated.
+Thanks go to [tryhackme](https://tryhackme.com/p/tryhackme) for this room. Much appreciated.
 
 Regards
 
