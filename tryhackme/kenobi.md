@@ -189,7 +189,7 @@ Nothing much here to look at.
 
 ## smb
 As we saw in the nmap scan there is a smb service running. Lets see what it has with smbmap.
-# smbclient
+### smbclient
 ```
 ~/CTF/tryhackme/kenobi$ smbmap -H $IP
 [+] Guest session   	IP: 10.10.80.223:445	Name: 10.10.80.223                                      
@@ -217,7 +217,7 @@ smb: \> bye
 bye: command not found
 smb: \> exit
 ```
-# smbget
+### smbget
 We could also have just run smbget to download all the files recursively that we had access to for review. 
 ```
 ~/CTF/tryhackme/kenobi$ smbget -R smb://$IP/anonymous
