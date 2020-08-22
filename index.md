@@ -14,7 +14,7 @@ As I get better at logging my work, more will be added and assuredly of better c
 * [Brooklyn 99 CTF](/tryhackme/brooklyn99.md) *Accepted on thm*
 * [Easy Peasy CTF](/tryhackme/easy_peasy.md) *Accepted on thm*
 * [Kenobi Walkthrough](/tryhackme/kenobi.md)
-* [Library Walkthrough](/tryhackme/library.md)
+* [Library CTF](/tryhackme/library.md)
 * [Pokemon CTF](/tryhackme/pokemon.md) *Accepted on thm*
 * [Simple CTF](/tryhackme/simpleCTF.md) *Accepted on thm*
 * [Skynet CTF](/tryhackme/skynet.md)
