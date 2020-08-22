@@ -13,6 +13,7 @@ As I get better at logging my work, more will be added and assuredly of better c
 * [Basic Penetration CTF](/tryhackme/basic_pentesting.md)
 * [Brooklyn 99 CTF](/tryhackme/brooklyn99.md) *Accepted on thm*
 * [Easy Peasy CTF](/tryhackme/easy_peasy.md) *Accepted on thm*
+* [Kenobi Walkthrough](/tryhackme/kenobi.md)
 * [Pokemon CTF](/tryhackme/pokemon.md) *Accepted on thm*
 * [Simple CTF](/tryhackme/simpleCTF.md) *Accepted on thm*
 * [Skynet CTF](/tryhackme/skynet.md)
