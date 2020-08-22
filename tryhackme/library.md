@@ -2,7 +2,7 @@
 
 # library
 
-This is aboot2root machine for FIT and bsides guatemala CTF.
+This is a boot2root machine for FIT and bsides guatemala CTF.
 
 ## nmap
 
@@ -42,7 +42,7 @@ PORT   STATE SERVICE
 
 Nmap done: 1 IP address (1 host up) scanned in 15.42 seconds
 ```
-Well, not much showing - just the two ports, one ssh and one html. It maybe worth a search later on the OpenSSH 7.2p2.
+Well, not much showing - just the two ports, one ssh and one html. It maybe worth a search later on for the OpenSSH 7.2p2.
 
 ## gobuster
 
