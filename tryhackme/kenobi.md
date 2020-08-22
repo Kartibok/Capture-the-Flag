@@ -1,3 +1,5 @@
+<a href="https://tryhackme.com/room/wgelctf"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
+
 # kenobi
 
 This is a walkthrough room covering a number of areas including samba. I came back to try this as a normal boot2root challenge and to see how much I remembered!
@@ -417,7 +419,7 @@ kenobi@kenobi:~$ cat user.txt
 <insert-user-flag-here>
 kenobi@kenobi:~$ 
 ```
-Great, we have the user flag. Now lets look at privilage escalation.
+Great, we have the user flag. Now lets look at privilege escalation.
 
 No password so lets look at SUID checks.
 ```
@@ -507,14 +509,14 @@ Following the instructions for the walkthrough, it took me a little while to und
 
 2. The curl command will return whatever instructions follow it.
 2. We create a new curl command that outputs to a shell, and as we are running it as root, we will have root shell access.
-2. Ensure that the file we created is accessable by all - chmod to 777
+2. Ensure that the file we created is accessible by all - chmod to 777
 2. Change the PATH so that it runs our curl command.
 2. Gain root access!!
 
 
 I thoroughly enjoyed this walkthrough room, especially coming back to do this write-up.
 
-It is definitely more noticable that teh more I do these room, the more I learn and the easier it becomes.
+It is definitely more noticeable that the more I do these room, the more I learn and the easier it becomes.
 
 Thanks go to ![tryhackme](https://tryhackme.com/p/tryhackme) for this room. Much appreciated.
 
@@ -522,4 +524,4 @@ Regards
 
 K
 
-
+<script src="https://tryhackme.com/badge/65208"></script>
