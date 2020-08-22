@@ -1,4 +1,4 @@
-<a href="https://tryhackme.com/room/wgelctf"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
+<a href="https://tryhackme.com/room/kenobi"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
 
 # kenobi
 
