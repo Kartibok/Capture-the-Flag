@@ -2,7 +2,7 @@
 
 # anonforce
 
-This is aboot2root machine for FIT and bsides guatemala CTF.
+This is a boot2root machine for FIT and bsides guatemala CTF.
 
 ## nmap
 
@@ -76,7 +76,7 @@ Nmap done: 1 IP address (1 host up) scanned in 15.42 seconds
 ```
 Well, not even an HTTP to look at. Not much showing, however there is a notread folder, marked as writeable, so something to look at.
 
-Other than that, just the two ports, one ssh and one ftp, although anonymous is allowed so that should be ournext port of call.
+Other than that, just the two ports, one ssh and one ftp, although anonymous is allowed so that should be our next port of call.
 
 ## gobuster
 No http ports showing, so no results.
@@ -254,7 +254,7 @@ Proceeding with wordlist:/usr/share/john/password.lst, rules:Wordlist
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed
 ```
-Right, lets go back to the import of the ,asc file.
+Right, lets go back to the import of the .asc file, run that again and add our password.
 ```
 ~/CTF/tryhackme/anonforce$ gpg --import private.asc 
 gpg: key B92CD1F280AD82C2: "anonforce <melodias@anonforce.nsa>" not changed
@@ -264,7 +264,7 @@ gpg: Total number processed: 2
 gpg:              unchanged: 2
 gpg:       secret keys read: 1
 gpg:   secret keys imported: 1
-karti@kali-pt:~/CTF/tryhackme/anonforce$ gpg --decrypt backup.pgp 
+~/CTF/tryhackme/anonforce$ gpg --decrypt backup.pgp 
 gpg: WARNING: cipher algorithm CAST5 not found in recipient preferences
 gpg: encrypted with 512-bit ELG key, ID AA6268D1E6612967, created 2019-08-12
       "anonforce <melodias@anonforce.nsa>"
@@ -298,7 +298,7 @@ melodias:$1$xDhc6S<insert-missing-digits-here>EQtL1:18120:0:99999:7:::
 sshd:*:18120:0:99999:7:::
 ftp:*:18120:0:99999:7:::
 ```
-So it appears that we have a copy of the /etc/shadow file, which includes root. Lets go straight for that. I will be using hashcat a I am trying to get more familiar with it rather than JtR. Firstly I take the root details and add to a file called root_hash. Before I run it I check against the [example hash](https://hashcat.net/wiki/doku.php?id=example_hashes) and in this case the $6$ is M 1800 (sha512crypt $6$, SHA512 (Unix) 2)
+So it appears that we have a copy of the /etc/shadow file, which includes root. Lets go straight for that. I will be using hashcat a I am trying to get more familiar with it rather than JtR. Firstly I take the root details and add to a file called root_hash. Before I run it, I check against the [example hash](https://hashcat.net/wiki/doku.php?id=example_hashes) and in this case the $6$ is showing as M 1800 (sha512crypt $6$, SHA512 (Unix) 2)
 
 ```
 ~/CTF/tryhackme/anonforce$ hashcat -m 1800 root_hash /usr/share/wordlists/rockyou.txt
