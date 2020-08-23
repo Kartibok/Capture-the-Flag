@@ -202,7 +202,12 @@ gpg: Total number processed: 0
 gpg:              unchanged: 1
 gpg:       secret keys read: 1
 ```
-Not my first failure today!. At the back of my mind John the Ripper (pgp2john) can do this type of cracking. Some Google searching and this came up.
+Ah ha!! Password required this time.
+
+<img src="../images/anonforce_password.png" alt="password required" width="300"/>
+<br>
+
+Not my first failure today! At the back of my mind John the Ripper (pgp2john) can do this type of cracking. Some Google searching and this came up.
 
 ```
 https://www.openwall.com/lists/john-users/2015/11/17/1
