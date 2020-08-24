@@ -85,9 +85,11 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ---------------------------------------------------------------------------
 + 1 host(s) tested
 ```
-Well not much more on offer. one webdav directory. Lets see if we can get inside that with a secondary gobuster search.
+Well not much more on offer. One single webdav directory. Let's see if we can get inside that with a secondary gobuster search.
 ```
-Error: the server returns a status code that matches the provided options for non existing urls. http://10.10.143.156/webdav/cf0a362d-4d12-4523-8490-cd3b30fcdc9d => 401. To force processing of Wildcard responses, specify the '--wildcard' switch
+Error: the server returns a status code that matches the provided options for non existing urls. 
+http://10.10.143.156/webdav/cf0a362d-4d12-4523-8490-cd3b30fcdc9d => 401. 
+To force processing of Wildcard responses, specify the '--wildcard' switch
 ```
 OK, I've seen this before where there is a logon page so an error feedback provided to gobuster. If you use the --wildcard switch, you pretty much much see a verbose attempt unfold in front of your eyes, each time giving errors. That being the case lets look at the main browser page.
 
@@ -117,11 +119,11 @@ Many modern operating systems provide built-in client-side support for WebDAV.
 <br>
 So lets look at the website and see if we can gain further details.
 
-<img src="../images/dav_webdav_resources.png" alt="resources" width="500"/>
+<img src="../images/dav_webdav_resources.png" alt="resources" width="600"/>
 <br>
 Now I clicked about the site seeing where it would take me and I found a project Cadaver, which shows some promise as it looks as though it will allow us access to the webDAV setup.
 
-<img src="../images/dav_cadaver.png" alt="cadaver" width="400"/>
+<img src="../images/dav_cadaver.png" alt="cadaver" width="500"/>
 
 A quick check on my Kali build and it comes pre installed!!
 ```
@@ -210,6 +212,8 @@ www-data@ubuntu:/home/merlin$ cat user.txt
 cat user.txt
 <insert-user-flag-here>
 ```
+There we have it a quick search and we have the user flag. 
+
 Now let us see how we can get to root. 
 ```
 www-data@ubuntu:/home/merlin$ sudo -l
