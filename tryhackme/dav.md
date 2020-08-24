@@ -154,8 +154,8 @@ After some playing about and searching for an example, I only needed the http ad
 
     login to the XAMPP server's WebDAV folder 
         cadaver http://<REMOTE HOST>/webdav/
-        user: wampp INSERT here
-        pass: xampp Insert here
+        user: <insert-user-here>
+        pass: <insert-password-here>
     upload a file to the webdav folder 
         put /tmp/helloworld.txt 
 
