@@ -94,8 +94,8 @@ OK, I've seen this before where there is a logon page so an error feedback provi
 ## webpage discovery
 Single blank page, with logon request. 
 
-#INSERT Image dav_logon_page here
-
+<img src="../images/dav_login_page.png" alt="login required" width="300"/>
+<br>
 ## where to now
 Looking at what we know. We have:
 
@@ -113,15 +113,15 @@ The WebDAV1 protocol provides a framework for users to create, change and move d
 Many modern operating systems provide built-in client-side support for WebDAV. 
 
 ````
-Insert webdav image protocaol here
-
+<img src="../images/dav_webdav_protocol.png" alt="wiki protocol" width="300"/>
+<br>
 So lets look at the website and see if we can gain further details.
 
-Insert webdav image resources here
-
+<img src="../images/dav_webdav_resources.png" alt="resources" width="300"/>
+<br>
 Now I clicked about the site seeing where it would take me and I found a project Cadaver, which shows some promise as it looks as though it will allow us access to the webDAV setup.
 
-Insert webDAV image Cadaver here. 
+<img src="../images/dav_cadaver.png" alt="cadaver" width="300"/>
 
 A quick check on my Kali build and it comes pre installed!!
 ```
@@ -166,7 +166,7 @@ Username: wampp
 Password: 
 dav:/webdav/> 
 ```
-INSERT WEBDAVINDEX HERE
+<img src="../images/dav_index_webdav.png" alt="webdav index" width="300"/>
 
 So we know from the list of commands and descriptions that we can add files directly, so lets try to upload the pentestmonkey php-reverse-shell.php file. I set up a netcat listening to port 4567 on my host machine and upload it using webdav.
 ```
@@ -177,7 +177,7 @@ dav:/webdav/>
 ```
 No I go to the website webdav directory and it is there.
 
-INSERT PHP image
+<img src="../images/dav_rev_php_shell.png" alt="reverse shell" width="300"/>
 
 I just click and then I'm in on a shell.
 
