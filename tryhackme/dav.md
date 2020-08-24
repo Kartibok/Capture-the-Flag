@@ -94,7 +94,7 @@ OK, I've seen this before where there is a logon page so an error feedback provi
 ## webpage discovery
 Single blank page, with logon request. 
 
-<img src="../images/dav_login_page.png" alt="login required" width="300"/>
+<img src="../images/dav_login_page.png" alt="login required" width="400"/>
 <br>
 ## where to now
 Looking at what we know. We have:
@@ -117,11 +117,11 @@ Many modern operating systems provide built-in client-side support for WebDAV.
 <br>
 So lets look at the website and see if we can gain further details.
 
-<img src="../images/dav_webdav_resources.png" alt="resources" width="300"/>
+<img src="../images/dav_webdav_resources.png" alt="resources" width="500"/>
 <br>
 Now I clicked about the site seeing where it would take me and I found a project Cadaver, which shows some promise as it looks as though it will allow us access to the webDAV setup.
 
-<img src="../images/dav_cadaver.png" alt="cadaver" width="300"/>
+<img src="../images/dav_cadaver.png" alt="cadaver" width="400"/>
 
 A quick check on my Kali build and it comes pre installed!!
 ```
@@ -166,7 +166,7 @@ Username: wampp
 Password: 
 dav:/webdav/> 
 ```
-<img src="../images/dav_index_webdav.png" alt="webdav index" width="300"/>
+<img src="../images/dav_index_webdav.png" alt="webdav index" width="400"/>
 
 So we know from the list of commands and descriptions that we can add files directly, so lets try to upload the pentestmonkey php-reverse-shell.php file. I set up a netcat listening to port 4567 on my host machine and upload it using webdav.
 ```
@@ -177,7 +177,7 @@ dav:/webdav/>
 ```
 No I go to the website webdav directory and it is there.
 
-<img src="../images/dav_rev_php_shell.png" alt="reverse shell" width="300"/>
+<img src="../images/dav_rev_php_shell.png" alt="reverse shell" width="400"/>
 
 I just click and then I'm in on a shell.
 
@@ -227,7 +227,6 @@ www-data@ubuntu:/home/merlin$
 ```
 With sudo -l as cat, we just needed to read the root.txt file.
 
-```
 The third in this series, was again a really enjoyable challenge. Love the use of an older application as this did challenge me in my search skills. 
 
 Again these things are always easy when you know how!!
