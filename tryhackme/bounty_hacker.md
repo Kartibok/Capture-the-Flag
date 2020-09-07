@@ -1,6 +1,6 @@
 <a href="https://tryhackme.com/room/cowboyhacker"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
 
-# bounty hunter
+# bounty hacker
 
 "You talked a big game about being the most elite hacker in the solar system. Prove it and claim your right to the status of Elite Bounty Hacker!" 
 Easy level CTF
