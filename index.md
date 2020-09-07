@@ -12,7 +12,7 @@ As I get better at logging my work, more will be added and assuredly of better c
 * [Agent Sudo CTF](/tryhackme/agentsudoctf.md)
 * [Anonforce CTF](/tryhackme/anonforce.md) *Accepted on thm*
 * [Basic Penetration CTF](/tryhackme/basic_pentesting.md)
-* [Bounty Hunter CTF](/tryhackme/bounty_hunter.md)
+* [Bounty Hacker CTF](/tryhackme/bounty_hacker.md)
 * [Brooklyn 99 CTF](/tryhackme/brooklyn99.md) *Accepted on thm*
 * [Dav CTF](/tryhackme/dav.md)
 * [Easy Peasy CTF](/tryhackme/easy_peasy.md) *Accepted on thm*
