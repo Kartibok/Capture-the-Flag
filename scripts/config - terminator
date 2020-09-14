@@ -1,0 +1,148 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.8
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    foreground_color = "#00ff00"
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 2:2
+      maximised = True
+      fullscreen = False
+      size = 1862, 945
+      title = karti@kali-pt: ~
+      last_active_term = 9c63a962-7cdb-40ae-8c50-17e5fc925426
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 928
+      ratio = 0.49973074851911686
+    [[[child2]]]
+      type = VPaned
+      parent = child1
+      order = 0
+      position = 470
+      ratio = 0.5
+    [[[terminal3]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      uuid = 891acf1b-0892-4d60-a4a5-c57bc77d005f
+    [[[terminal4]]]
+      type = Terminal
+      parent = child2
+      order = 1
+      profile = default
+      uuid = 58db53fb-a0cd-44e8-9f57-8558ee94d0a6
+    [[[child5]]]
+      type = VPaned
+      parent = child1
+      order = 1
+      position = 299
+      ratio = 0.3180851063829787
+    [[[terminal6]]]
+      type = Terminal
+      parent = child5
+      order = 0
+      profile = default
+      uuid = 75b8f5d1-becc-4f25-a03a-219332ac4fbe
+    [[[child7]]]
+      type = VPaned
+      parent = child5
+      order = 1
+      position = 311
+      ratio = 0.4859375
+    [[[terminal8]]]
+      type = Terminal
+      parent = child7
+      order = 0
+      profile = default
+      uuid = b14f1f3f-a8ef-411d-b85d-5cdb87b348a4
+    [[[terminal9]]]
+      type = Terminal
+      parent = child7
+      order = 1
+      profile = default
+      uuid = 9c63a962-7cdb-40ae-8c50-17e5fc925426
+  [[CTF]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 2:2
+      maximised = True
+      fullscreen = False
+      size = 1862, 945
+      title = karti@kali-pt: ~
+      last_active_term = 9c63a962-7cdb-40ae-8c50-17e5fc925426
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 928
+      ratio = 0.49973074851911686
+    [[[child2]]]
+      type = VPaned
+      parent = child1
+      order = 0
+      position = 470
+      ratio = 0.5
+    [[[terminal3]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      uuid = 891acf1b-0892-4d60-a4a5-c57bc77d005f
+      command = rustscan $IP --ulimit 5000; bash
+    [[[terminal4]]]
+      type = Terminal
+      parent = child2
+      order = 1
+      profile = default
+      uuid = 58db53fb-a0cd-44e8-9f57-8558ee94d0a6
+      command = nmap -A -sC -sV $IP -p-; bash
+    [[[child5]]]
+      type = VPaned
+      parent = child1
+      order = 1
+      position = 299
+      ratio = 0.3180851063829787
+    [[[terminal6]]]
+      type = Terminal
+      parent = child5
+      order = 0
+      profile = default
+      uuid = 75b8f5d1-becc-4f25-a03a-219332ac4fbe
+      command = nikto -h $IP -Display 2; bash
+    [[[child7]]]
+      type = VPaned
+      parent = child5
+      order = 1
+      position = 311
+      ratio = 0.4859375
+    [[[terminal8]]]
+      type = Terminal
+      parent = child7
+      order = 0
+      profile = default
+      uuid = b14f1f3f-a8ef-411d-b85d-5cdb87b348a4
+      command = gobuster dir -u $IP -w /usr/share/wordlists/dirb/common.txt; bash
+    [[[terminal9]]]
+      type = Terminal
+      parent = child7
+      order = 1
+      profile = default
+      uuid = 9c63a962-7cdb-40ae-8c50-17e5fc925426
+      command = gobuster dir -u $IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt; bash
+[plugins]
