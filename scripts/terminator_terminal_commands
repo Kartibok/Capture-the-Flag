@@ -1,0 +1,7 @@
+##Terminator terminal commands
+
+command = nmap -A -sC -sV $IP -p- ; bash
+command = rustscan $IP --ulimit 5000 : bash
+command = nikto -h $IP -Display 2 ; bash
+command = gobuster dir -u $IP -w /usr/share/wordlists/dirb/common.txt ; bash
+command = gobuster dir -u $IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt ; bash
