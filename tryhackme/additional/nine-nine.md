@@ -1,3 +1,5 @@
+<a href="https://tryhackme.com/room/cowboyhacker"><img src="../images/THMlogo.png" alt="tryhackme" width="200"/></a>
+
 # brooklyn nine nine
 
 ## rustscan and nmap
@@ -315,7 +317,17 @@ Congratulations in rooting Brooklyn Nine Nine
 Here is the flag: 63a9f0ea7bb98050796b649e85481845
 ```
 
+This is the first time I used my new draft template for working through the room, and I may even give it a 1.0 version if it keeps this up :)
 
+This room was created by [Fsociety2006](https://tryhackme.com/p/Fsociety2006) and one I really enjoyed not just because of the 99 show but also the learning value.
+
+Thanks Fsociety2006 for your time.
+
+Regards
+
+Karti
+
+<script src="https://tryhackme.com/badge/65208"></script>
 
 
 
