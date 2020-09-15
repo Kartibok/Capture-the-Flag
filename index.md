@@ -26,3 +26,5 @@ As I get better at logging my work, more will be added and assuredly of better c
 * [Vulnversity CTF](/tryhackme/vulnversity.md)
 * [Wgel CTF](/tryhackme/wgelCTF.md)
 
+### new template.
+* [Brooklyn 99 CTF](/tryhackme/additional/nine-nine.md)
