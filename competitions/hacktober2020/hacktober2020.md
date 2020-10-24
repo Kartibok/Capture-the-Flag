@@ -1,9 +1,11 @@
+<a href="https://twitter.com/CHacktics"><img src="images/deadface.png" alt="Deadface" width="200"/></a> <a href="https://twitter.com/CHacktics"><img src="images/participant.png" alt="Deadface" width="200"/></a>
+
 # Hacktober CTF 2020
 
 ## Introduction
 This was only my second CTF and first as a team, in this case for the John Hammond Discord group. Although four people entered only two actually took part, so for my position in the final line line up I need to say a thank you to RoOt for getting a lot of the big number questions!!
 
-This write up will encompass all the challenges that I have completed, although initially this will be the SQL ones as I have just started to focus on the database jepardy questions. I hoope they are helpful in some way and if you come back they will be updated as and when I get time. With better note taking in the next CTF, I'm hoping that it will be more helpful to people.
+This write up will encompass all the challenges that I have completed, although initially this will just be the SQL ones as I have just started to focus on the database jepardy questions. I hope they are helpful in some way and if you do come back they will be updated as and when I get time. With better note taking in the next CTF, I'm hoping that it will be more helpful to people.
 
 Lets get started. 
 
@@ -15,12 +17,12 @@ Using the Shallow Grave SQL dump, which field(s) in the users table accepts NULL
 
 #### my solution
 
-First I have to utilise the database file that they provided to for analysis. 
+First I have to utilise the database file that they provided to us for analysis. 
 
 Lets log in with root to mysql.
 
 ```sql
-mysql -u root -p
+$ mysql -u root -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 11
@@ -34,13 +36,18 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 ```
-Now let's create a database, in this case NullAndVoid
+Now let's create a database, in this case NullAndVoid to make it easy.
 ```sql
 mysql> create database NullAndVoid;
 Query OK, 1 row affected (0.01 sec)
 
 mysql> exit
 Bye
+```
+So now that has been created we can import the file into the prepared database.
+```sql
+$ mysql -u root -p NullAndVoid < shallowgraveu.sql 
+Enter password: 
 ```
 OK we have the database instance installed and ready - lets review it.
 ```sql
@@ -115,48 +122,6 @@ Now we see that the 'middle' field is NULL YES, so that is part of our answer. A
 
 flag{middle, describe}
 
+As I mentioned earlier I have started to show an interest in the MySQL side and actually enjoying it. This also goes out to the sqlite3 challenge we have later. In the meantime I have been using MySql Workbench and find that it is a simple GUI interface. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
-~/CTF/tryhackme/agentsudo$ nmap -sC -sV 10.10.133.196
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-04 20:11 BST
-Nmap scan report for 10.10.133.196
-Host is up (0.038s latency).
-Not shown: 997 closed ports
-PORT   STATE SERVICE VERSION
-21/tcp open  ftp     vsftpd 3.0.3
-22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
-|   2048 ef:1f:5d:04:d4:77:95:06:60:72:ec:f0:58:f2:cc:07 (RSA)
-|   256 5e:02:d1:9a:c4:e7:43:06:62:c1:9e:25:84:8a:e7:ea (ECDSA)
-|_  256 2d:00:5c:b9:fd:a8:c8:d8:80:e3:92:4f:8b:4f:18:e2 (ED25519)
-80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
-|_http-server-header: Apache/2.4.29 (Ubuntu)
-|_http-title: Annoucement
-Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 10.93 seconds
-```
-
-## nikto
-```
+The best point about learning this is that it not only helps with database questions but also the sqli on websites, which were always (in that Halloween moment) scary. #tickinthebox  
