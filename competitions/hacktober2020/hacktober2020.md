@@ -125,3 +125,75 @@ flag{middle, describe}
 As I mentioned earlier I have started to show an interest in the MySQL side and actually enjoying it. This also goes out to the sqlite3 challenge we have later. In the meantime I have been using MySql Workbench and find that it is a simple GUI interface. 
 
 The best point about learning this is that it not only helps with database questions but also the sqli on websites, which were always (in that Halloween moment) scary. #tickinthebox  
+
+### body count
+
+#### the write up
+
+How many users exist in the Shallow Grave University database?
+
+Submit the flag in the following format: flag{#}
+
+#### my solution
+In this challenge we already have the database loaded from before so we can use the NullAndVoid tables. Follow the instructions above to add the database if you have not already done so. Let's see what we have.
+```sql
+mysql> show tables;
++-----------------------+
+| Tables_in_NullAndVoid |
++-----------------------+
+| countries             |
+| courses               |
+| degree_types          |
+| enrollments           |
+| passwords             |
+| payment_statuses      |
+| programs              |
+| roles                 |
+| roles_assigned        |
+| states                |
+| term_courses          |
+| terms                 |
+| users                 |
++-----------------------+
+13 rows in set (0.00 sec)
+```
+Now let us look at the actual user table for familiarity.
+```sql
+mysql> describe users;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| user_id  | int         | NO   | PRI | NULL    | auto_increment |
+| username | varchar(52) | NO   | UNI | NULL    |                |
+| first    | varchar(52) | NO   |     | NULL    |                |
+| last     | varchar(52) | NO   |     | NULL    |                |
+| middle   | varchar(24) | YES  |     | NULL    |                |
+| email    | varchar(52) | NO   | UNI | NULL    |                |
+| street   | varchar(52) | NO   |     | NULL    |                |
+| city     | varchar(52) | NO   |     | NULL    |                |
+| state_id | int         | NO   | MUL | NULL    |                |
+| zip      | varchar(10) | NO   |     | NULL    |                |
+| gender   | varchar(8)  | NO   |     | NULL    |                |
+| dob      | date        | NO   |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+12 rows in set (0.01 sec)
+```
+Now we could just use the straightforward "select * from users" that will give us every row with a total number of rows in a set:
+```sql
++----------+------------+---------+
+900 rows in set (0.00 sec)
+```
+However to get the number we can just use the count() function.
+```sql
+mysql> select count(*) from users;
++----------+
+| count(*) |
++----------+
+|      900 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> 
+```
+Remembering the flag format we have flag{900}
+
