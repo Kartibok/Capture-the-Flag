@@ -9,13 +9,13 @@ This write up will encompass all the challenges that I have completed, although 
 
 Lets get started. 
 
-### null and void
+## null and void
 
-#### the write up
+### the write up
 
 Using the Shallow Grave SQL dump, which field(s) in the users table accepts NULL values? Submit the field name followed by the single command used to show the information (separated by a comma). Submit the flag as flag{column-name, command}.
 
-#### my solution
+### my solution
 
 First I have to utilise the database file that they provided to us for analysis. 
 
@@ -126,15 +126,15 @@ As I mentioned earlier I have started to show an interest in the MySQL side and 
 
 The best point about learning this is that it not only helps with database questions but also the sqli on websites, which were always (in that Halloween moment) scary. #tickinthebox  
 
-### body count
+## body count
 
-#### the write up
+### the write up
 
 How many users exist in the Shallow Grave University database?
 
 Submit the flag in the following format: flag{#}
 
-#### my solution
+### my solution
 In this challenge we already have the database loaded from before so we can use the NullAndVoid tables. Follow the instructions above to add the database if you have not already done so. Let's see what we have.
 ```sql
 mysql> show tables;
