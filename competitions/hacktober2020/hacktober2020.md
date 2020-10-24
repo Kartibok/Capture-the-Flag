@@ -196,4 +196,90 @@ mysql> select count(*) from users;
 mysql> 
 ```
 Remembering the flag format we have flag{900}
+## address book
+
+### the write up
+Shallow Grave University has provided us with a dump of their database. Find luciafer’s email address and submit
+it as the flag in this format: flag{username@email.com}
+
+### my solution
+Once again we already have the NullAndVoid database loaded. As before follow the instructions for the null and void question to get to this stage.
+Lets remind ourself what the users table is like.
+```sql
+mysql> describe users;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| user_id  | int         | NO   | PRI | NULL    | auto_increment |
+| username | varchar(52) | NO   | UNI | NULL    |                |
+| first    | varchar(52) | NO   |     | NULL    |                |
+| last     | varchar(52) | NO   |     | NULL    |                |
+| middle   | varchar(24) | YES  |     | NULL    |                |
+| email    | varchar(52) | NO   | UNI | NULL    |                |
+| street   | varchar(52) | NO   |     | NULL    |                |
+| city     | varchar(52) | NO   |     | NULL    |                |
+| state_id | int         | NO   | MUL | NULL    |                |
+| zip      | varchar(10) | NO   |     | NULL    |                |
+| gender   | varchar(8)  | NO   |     | NULL    |                |
+| dob      | date        | NO   |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+12 rows in set (0.00 sec)
+```
+Now we can see that the field we know (luciafer's first name) is called 'first' as well as a field called email.
+With that in mind lets us get teh query ready. So in English, it wil be something like. "Select the email from users where the first name is Luciafer"
+If we add this to SQL is comes out very similar but let us check at the start how many first names begin with 'l'
+```sql
+mysql> select count(*) from users where first like 'l%';
++----------+
+| count(*) |
++----------+
+|       65 |
++----------+
+1 row in set (0.00 sec)
+```
+Lets us add a character each time.
+```sql
+mysql> select count(*) from users where first like 'lu%';
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from users where first like 'luc%';
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from users where first like 'luci%';
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+```
+Now we know there is one, we can amend the query to show the single result.
+```sql
+mysql> select email from users where first like 'luci%';
++-----------------------------------+
+| email                             |
++-----------------------------------+
+| luc1afer.h4vr0n@shallowgraveu.com |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+```
+Knowing the flag, we can add it to the correct format.
+
+flag{luc1afer.h4vr0n@shallowgraveu.com}
+
+Third one in a row!!
+
+
 
