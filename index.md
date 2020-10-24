@@ -28,3 +28,5 @@ As I get better at logging my work, more will be added and assuredly of better c
 
 ### new template.
 * [Brooklyn 99 CTF](/tryhackme/additional/nine-nine.md)
+### competitions
+* [HacktoberCTF 2020](/competitions/hacktober2020.md)
