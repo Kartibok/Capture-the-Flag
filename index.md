@@ -1,10 +1,3 @@
-<ul>
-  <li {% if page.url contains '/getting-started' %}class="active"{% endif %}><a href="/getting-started/">Getting started</a></li>
-  <li {% if page.url contains '/without-plugin' %}class="active"{% endif %}><a href="/without-plugins/">Without plugins</a></li>
-  <li {% if page.url contains '/about' %}class="active"{% endif %}><a href="/about/">About</a></li>
-  <li {% if page.url contains '/blog' %}class="active"{% endif %}><a href="/blog/">Blog</a></li>
-</ul>
-
 # Capture the Flag
 
 Welcome to my attempts at not only learning penetration testing, python, web development, but my latest and greatest, all interest grabbing - Capture the Flag.
