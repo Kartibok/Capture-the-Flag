@@ -1,1 +1,9 @@
 theme: jekyll-theme-midnight
+title: Kartibok's CTF Journey
+description: A list of my write-ups as well as my methods and ways of completing challenges
+show_downloads: True
+navigation:
+  - title: Home
+    url: /
+  - title: Write Ups
+    url: setup
