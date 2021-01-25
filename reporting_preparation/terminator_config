@@ -106,12 +106,14 @@
       order = 0
       profile = default
       uuid = 891acf1b-0892-4d60-a4a5-c57bc77d005f
+      command = rustscan $IP --ulimit 5000; bash
     [[[terminal4]]]
       type = Terminal
       parent = child2
       order = 1
       profile = default
       uuid = 58db53fb-a0cd-44e8-9f57-8558ee94d0a6
+      command = nmap -A -sC -sV $IP -p-; bash
     [[[child5]]]
       type = VPaned
       parent = child1
@@ -124,6 +126,7 @@
       order = 0
       profile = default
       uuid = 75b8f5d1-becc-4f25-a03a-219332ac4fbe
+      command = nikto -h $IP -Display 2; bash
     [[[child7]]]
       type = VPaned
       parent = child5
@@ -136,10 +139,12 @@
       order = 0
       profile = default
       uuid = b14f1f3f-a8ef-411d-b85d-5cdb87b348a4
+      command = gobuster dir -u $IP -w /usr/share/wordlists/dirb/common.txt; bash
     [[[terminal9]]]
       type = Terminal
       parent = child7
       order = 1
       profile = default
       uuid = 9c63a962-7cdb-40ae-8c50-17e5fc925426
+      command = gobuster dir -u $IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt; bash
 [plugins]
