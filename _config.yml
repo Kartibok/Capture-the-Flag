@@ -1,21 +1,10 @@
 theme: jekyll-theme-hacker
 title: Kartibok's CTF Journey
 description: A list of my write-ups as well as my methods and ways of completing challenges
-show_downloads: True
+show_downloads: False
 navigation:
   - title: Home
     url: /
   - title: Write Ups
     url: setup
     
-docs_list_title: ACME Documentation
-docs:
-
-- title: Introduction
-  url: introduction.html
-
-- title: Configuration
-  url: configuration.html
-
-- title: Deployment
-  url: deployment.html
