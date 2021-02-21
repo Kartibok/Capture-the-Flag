@@ -12,7 +12,7 @@ https://whatsmyname.app/
 
 Adding her username of l.beck, we were given a number of options.
 
-![[image008a.png]]
+![[./images/image008a.png]]
 
 As it was already mentioned that it was a social media site, I then checked about.me
 
