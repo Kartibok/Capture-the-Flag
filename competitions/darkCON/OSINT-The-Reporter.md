@@ -12,11 +12,11 @@ https://whatsmyname.app/
 
 Adding her username of l.beck, we were given a number of options.
 
-![[./images/image008a.png]]
+![[../images/image008a.png]]
 
 As it was already mentioned that it was a social media site, I then checked about.me
 
-![[image008b.png]]
+![[../images/image008b.png]]
 
 Found her. She seems to have left some details on the page that might be useful.
 ```
@@ -25,15 +25,15 @@ Found her. She seems to have left some details on the page that might be useful.
 
 This looks like a hex, so I already had [Cyberchef](https://gchq.github.io/CyberChef/#recipe=From_Hex('Auto')&input=NzI1ZjM3NjI2ZjZlNmU2OTY1) open so I baked it with "from hex"
 
-![[image008c.png]]
+![[../images/image008c.png]]
 
 So with my "r_7bonnie" I did a Google search and found a possible reddit account.
 
-![[image008d.png]]
+![[../images/image008d.png]]
 
 When I investigated further, it had an mp4 file, that repeated itself. It appears to be an image of Lola and a QR code merged together.
 
-![[image008e.png]]
+![[../images/image008e.png]]
 
 I downloaded and played the image pausing it on the QR code, created a screenshot and looked to manipulate it in either GIMP or INKSCAPE.
 
