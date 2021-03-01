@@ -14,7 +14,7 @@ https://whatsmyname.app/
 
 This found only one account, in Twitter. 
 
-![[image009a.png]]
+![](./images/image009a.png)
 
 However the categoy link is for shadowban.eu. What is that?
 
@@ -25,7 +25,7 @@ That way, other social media users don’t suffer from spam because they can’t
 
 Interesting - I checked the shadowban site for Boba and it confirmed the account existed
 
-![[image009b.png]]
+![](./images/image009b.png)
 
 So what do we see. It looks as if there is some encrpted text on the last post.
 ```
@@ -34,11 +34,11 @@ aHR0cHM6Ly9wYXN0ZWJpbi5jb20vdmRTM0NIMlE
 
 Using our favourite GCHQ tool, Cyberchef, we paste it in. If we are not sure what operation we need to search for we can do one of two things. Use the Magic operation that will automatically run through a number of scenarios and give you a selection of possible answers or if you see the magic wand and hover the mouse over it, you will see that base64 will provide a valid answer. Click on the wand and we see the next part of the puzzle. 
 
-![[image009c.png]]
+![](./images/image009c.png)
 
 It provides us with a pastebin link.
 
-![[image009d.png]]
+![](./images/image009d.png)
 
 What is pastebin?
 *Pastebin is a website that allows users to share plain text through public posts called “pastes.” The site currently has 17 million unique monthly users. Why is it so popular, and where did it come from?
@@ -46,11 +46,11 @@ There are many similar web applications, known as “paste sites,” that have d
 
 However we see it needs a password. All we know is that we have a twitter feed. Lets have another look.
 
-![[image009e.png]]
+![](./images/image009e.png)
 
 His name does look strange. What about the e1T5JxTmZS at the end of his name.
 
-![[image009f.png]]
+![](./images/image009f.png)
 
 This works and we gain access to the pastebin and the flag:
 
