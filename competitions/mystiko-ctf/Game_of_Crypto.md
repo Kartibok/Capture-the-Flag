@@ -28,6 +28,6 @@ This now gives us the result!
 
 Mystiko{I_d3ink_@nd_I_kn0w_things}
 
-decode.fr is a great site for cryptographic tools (dCode has a huge library of scripts for decoding or encoding messages with standard cryptography techniques.) Code and Alphabete Tools and also mathmatical tools.
+https://decode.fr is a great site for cryptographic tools (dCode has a huge library of scripts for decoding or encoding messages with standard cryptography techniques.) Code and Alphabete Tools and also mathmatical tools.
 
 Keep it in your arsenal as a bookmark.
