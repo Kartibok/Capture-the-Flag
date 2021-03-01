@@ -16,15 +16,15 @@ I will admit I have seen a similar challenge before, but if we look at the clues
 
 As always remember Google is our friend. So with this in mind let's search.
 
-![[image010a.png]]
+![](./images/image010a.png)
 
 Google providesus with a link to a Hodor encode and decoder. From here we paste in our original cipher text and hit decrypt.
 
-![[image010b.png]]
+![](./images/image010b.png)
 
 This now gives us the result!
 
-![[image010c.png]]
+![](./images/image010c.png)
 
 Mystiko{I_d3ink_@nd_I_kn0w_things}
 
