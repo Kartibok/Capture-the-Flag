@@ -12,11 +12,11 @@ For any OSINT challenges you can use a number of tools including Sherlock, but a
 
 https://whatsmyname.app/
 
-This found only one account, in Twitter. 
+This found only one account, in the social media section. 
 
 ![](./images/image009a.png)
 
-However the categoy link is for shadowban.eu. What is that?
+However the categoy link shows you a shadowban.eu domain. What is that?
 
 *What Is Shadowbanning?
 Shadowbanning is when your posts or activity don’t show up on a site, but you haven’t received an official ban or notification.
@@ -25,12 +25,15 @@ That way, other social media users don’t suffer from spam because they can’t
 
 Interesting - I checked the shadowban site for Boba and it confirmed the account existed
 
+![](./images/image009g.png)
+
+Now lets check out the social media account.
+
 ![](./images/image009b.png)
 
 So what do we see. It looks as if there is some encrpted text on the last post.
-```
-aHR0cHM6Ly9wYXN0ZWJpbi5jb20vdmRTM0NIMlE
-```
+
+![](./images/image009h.png)
 
 Using our favourite GCHQ tool, Cyberchef, we paste it in. If we are not sure what operation we need to search for we can do one of two things. Use the Magic operation that will automatically run through a number of scenarios and give you a selection of possible answers or if you see the magic wand and hover the mouse over it, you will see that base64 will provide a valid answer. Click on the wand and we see the next part of the puzzle. 
 
