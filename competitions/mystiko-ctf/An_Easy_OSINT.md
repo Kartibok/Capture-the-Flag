@@ -54,4 +54,6 @@ His name does look strange. What about the e1T5JxTmZS at the end of his name.
 
 This works and we gain access to the pastebin and the flag:
 
-Mystiko{e4sy_051n7_41n7_17?}
+Mystiko{?????????????} 
+
+PS. Not the real flag, you'll have to follow the instructions for that. #boom #insertsmileyhere 
