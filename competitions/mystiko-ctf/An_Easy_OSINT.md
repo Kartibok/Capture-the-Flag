@@ -27,11 +27,7 @@ Interesting - I checked the shadowban site for Boba and it confirmed the account
 
 ![](./images/image009g.png)
 
-Now lets check out the social media account.
-
-![](./images/image009b.png)
-
-So what do we see. It looks as if there is some encrpted text on the last post.
+Now lets check out the social media account. So what do we see. It looks as if there is some encrpted text on the last post.
 
 ![](./images/image009h.png)
 
