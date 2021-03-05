@@ -77,7 +77,7 @@ IEND
 hmmmmmmmmmmm what are you looking for 111010.........(insert missing binary here) 
 ```
 
-I have shortened the sequence here, but it provides us with two clues. One about Blind people reading something and what looks like binary.
+I have shortened the sequence here, but it provides us with two clues. One about Blind people reading something and some code that looks like binary.
 
 Some research on how those individuals that are sight impared can read will benefit you here.
 
