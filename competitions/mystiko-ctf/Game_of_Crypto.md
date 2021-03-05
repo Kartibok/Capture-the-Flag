@@ -24,8 +24,6 @@ Google provides us with a link to a Hodor encode and decode site. From here we s
 
 This now gives us the result!
 
-![](./images/image010c.png)
-
 Mystiko{?????????????}
 
 https://decode.fr is a great site for cryptographic tools (dCode has a huge library of scripts for decoding or encoding messages with standard cryptography techniques.) Code and Alphabet Tools as well as mathmatical tools.
