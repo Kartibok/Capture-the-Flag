@@ -27,17 +27,17 @@ So let us look at the two types, we have:
 
 Lets see if we can actually view the files. In this case I used Eye of Gnome (eog) viewer, where I could see "ceiling_cat.elf"
 
-![[image011a.png]]
+![](./images/image011a.png)
 
 I could not see the mystiko.jpg. 
 
-![[image011b.png]]
+![](./images/image011b.png)
 
 Now we already know that it is misnamed because the "file" command picked up the magic number of the actual image itself. The magic number is a hex number found within any file, that in turn informs you of its type.
 
 Lets just change it to a .png and see what happens.
 
-![[image011c.png]]
+![](./images/image011c.png)
 
 Right we can now see the image. Let us quickly look at the .png file hex view (using hexedit) and check out it's type  against this list of magic numbers held on wikipedia. This list will provide further hex details if you would like to investigate further.
 
@@ -45,11 +45,11 @@ https://en.wikipedia.org/wiki/List_of_file_signatures
 
 Below is the hex implimentation of the first few lines, where we can see that it indicates a .png file.
 
-![[image011d.png]]
+![](./images/image011d.png)
 
 We will notice that if we search the wiki page we find the magic number is:
 
-![[image011e.png]]
+![](./images/image011e.png)
 
 These hexidecimal extracts match the first eight pairs. This indicates that it is a therefore marked up incorrectly as a jpg.
 
@@ -74,7 +74,7 @@ dVDG
 A!nr#
 2z`\
 IEND
-hmmmmmmmmmmm what are you looking for 111010 001111 100100 100000 100110 101100 
+hmmmmmmmmmmm what are you looking for 111010.........(insert missing binary here) 
 ```
 
 I have shortened the sequence here, but it provides us with two clues. One about Blind people reading something and what looks like binary.
@@ -87,7 +87,7 @@ Remember when extracting from .png, we use "zsteg" and when extracting from .jpg
 
 Using the password we find from earlier after our reseach, we can access the file and #boom #everyoneisawinner
 
-![[image011f.png]]
+![](./images/image011f.png)
 
 
 
