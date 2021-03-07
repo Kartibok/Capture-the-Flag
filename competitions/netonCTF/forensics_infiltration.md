@@ -6,7 +6,7 @@ This was the challenge description:
 
 We are provided by a Wireshark .pcapng file
 
-![[neton001a.png]]
+![](./images/neton001a.png)
 
 Normally I check to see if any files are visible by:
 ```
@@ -22,7 +22,7 @@ The options we have to export from are :
 
 Within HTTP we find a large number of files. These are downloaded to investigate.
 
-![[neton001b.png]]
+![](./images/neton001b.png)
 
 Checking through the files, we find that the action(6).php provides the flag!
 
@@ -62,7 +62,7 @@ Binary file (standard input) matches
 
 After some checks using our best friend Google. 
 
-![[neton001c.png]]
+![](./images/neton001c.png)
 
 So we need to add '-a' to improve the search, giving us the flag.
 
