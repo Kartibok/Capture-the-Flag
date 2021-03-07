@@ -42,5 +42,5 @@ Same as last time, save this file and run zbarimg, that provides us with the fla
 QR-Code:NETON{ThatsRoughBuddy}
 scanned 1 barcode symbols from 1 images in 0.01 seconds
 ```
-
+### flag
 NETON{ThatsRoughBuddy}
