@@ -6,7 +6,7 @@ This was the challenge description:
 
 Provided for us to review are a series of four image files in a jungle.7z compressed file.
 
-![[neton003a.png]]
+![](./images/neton003a.png)
 
 If we view all the files, we note that three are visible and one is corrupt. It shows that it is a riff file rather than a jpg. If we simply change the extension we can view the file, which for all four images are characters from the Jungle Book.
 
