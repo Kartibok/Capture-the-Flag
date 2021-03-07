@@ -16,11 +16,11 @@ QRRXDRPCKESRSNSWWY
 
 I did a quick Google (is our friend) search on the first part of the paragraph and that gave us:
 
-![[neton004a.png]]
+![](./images/neton004a.png)
 
 Now we know who said it, I do a similar search:
 
-![[neton004b.png]]
+![](./images/neton004b.png)
 
 So we see that he created the Playfair Cipher. Further research takes us to Wikipedia:
 
@@ -34,19 +34,19 @@ The technique encrypts pairs of letters (_[bigrams](https://en.wikipedia.org/wik
 As usual a search for online decoder - in this case:
 https://www.dcode.fr/playfair-cipher
 
-![[neton004c.png]]
+![](./images/neton004c.png)
 
 Having read a little about it, and the hint that he always "He always signs with his name and surname", lets try that.
 
-![[neton004d.png]]
+![](./images/neton004d.png)
 
  As you can see, it removes duplicates. With his name inserted, we can autopopulate the rest with the -J line. Lets try that.
 
-![[neton004e.png]]
+![](./images/neton004e.png)
 
 Now when we hit the decrypt button, we get the answer.
 
-![[neton004f.png]]
+![](./images/neton004f.png)
  
- Giving us the flag:
- NETON{PLAYFAIRISTHEBESTX}
+Giving us the flag:
+NETON{PLAYFAIRISTHEBESTX}
