@@ -6,7 +6,7 @@ This was the challenge description:
 
 We are given a .png file that turns out to be a QR code.
 
-![[neton005a.png]]
+![](./images/neton005a.png)
 
 Using zbarimg we find it provides a link to mega:
 ```shell
@@ -15,7 +15,7 @@ QR-Code:https://mega.nz/file/MJYmRLya#vR5UPglFNdgDWNhlhKSPWhXgwCo6zNH_PJHusZwBv9
 scanned 1 barcode symbols from 1 images in 0.01 seconds
 ```
 
-![[neton005b.png]]
+![](./images/neton005b.png)
 
 We download the file, which is a large text file.
 ```
@@ -25,15 +25,15 @@ If we look at the end of the file the spacers == indicate a Base64 sequence.
 
 Lets tthrow it into GCHQ's CyberChef and bake with From Base64 or indeed click the magic wand:
 
-![[neton005c.png]]
+![](./images/neton005c.png)
 
 We see this is now an xml file. 
 
-![[neton005d.png]]
+![](./images/neton005d.png)
 
 If we save this and open it in our browser window we see another QR code. 
 
-![[neton005e.png]]
+![](./images/neton005e.png)
 
 Same as last time, save this file and run zbarimg, that provides us with the flag.
 
