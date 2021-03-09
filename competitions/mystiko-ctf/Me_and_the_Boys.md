@@ -4,7 +4,7 @@ This was the challenge description:
 
 *Spider man is hunting down the bad boys and looks like they are hiding some where 🕵️*
 
-![[image014a.png]]
+![](./images/image014a.png)
 
 We were given a image file bad_boys.jpg. I ran through everything that I would normally do for these types of pictures. The list is almost endless.
 
