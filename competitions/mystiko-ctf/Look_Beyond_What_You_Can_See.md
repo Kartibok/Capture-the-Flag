@@ -20,7 +20,7 @@ It reveals that it could be a number of types:
 
 OK Let's look back at the description. Two items stand out from the text and both are completed with capital letters.
 
-- PAT (from what we now know that could be the reverse of TAP taken from the challenge description)
+- PAT (from what we now know that could be the reverse of TAP)
 - TOR (again following the same pattern, it could be ROT reversed.)
 
 If that is the case, we could look to ROT the code, but how many times and what does it mean?
