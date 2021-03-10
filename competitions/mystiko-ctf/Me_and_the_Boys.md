@@ -96,6 +96,16 @@ Again, as per our previous command line work, if we check the man or help featur
 ~/Downloads$ echo '5f ** ** ** ** ** ** ** ** 72 65' | xxd 
 _again*the*answer*appears*here_
 ```
+Now I thought I had both parts of the flag but each time I entered it, it failed. 
 
-Now we have both parts of the flag. Well done. 
+So what now. So far I have a quote that actually soundsand looks familiar. A quick search brings me to a Superman poster (no more hints!!)
+
+Right. What now? I add the additional words to the first two parts and complete the phrase #boom I have the flag and the points!!
+
+But what about the challenge? It must be in the strings. I did some further research and yes, I found the final piece of the puzzle. 
+
+This time I copied the whole of the string output, put it into GCHQ CyberChef and ran it through some of the popular operations. It came up with a Caesar style cipher not far from the other two.
+
+Great Challenge, even if I was lucky with the final part! 
+
 
