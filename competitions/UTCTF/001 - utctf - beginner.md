@@ -101,7 +101,7 @@ https://www.isss.io/utctf/
 
 Lets look at the source code and bang!! We have the flag.
 
-![[utctf001a.png]]
+![](./images/utctf001a.png)
 
 utflag{you_found_me_0123959}
 
@@ -122,7 +122,7 @@ OK now we know it is a png file, lets use the default image viewer Eye of Gnome 
 ~/Downloads$ eog out.txt
 ```
 
-![[utctf001b.png]]
+![](./images/utctf001b.png)
 
 Now we have the flag.
 utflag{file_extensions_mean_nothing}
