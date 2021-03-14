@@ -44,7 +44,7 @@ Enter WORKGROUP\kartibok's password:
 SMB1 disabled -- no workgroup available
 :~$ 
 ```
-So that is not available. Next I thought about  'smbget'. I created a folder to store any data, then ran the 'smbget.  
+So that is not available. Next I thought about  'smbget'. I created a folder to store any data, then ran the 'smbget'  
 ```shell
 ~$ mkdir samba
 ~$ cd samba/
@@ -54,6 +54,9 @@ Using workgroup WORKGROUP, user kartibok
 smb://misc.utctf.live:8881//guest/flag.txt                                 
 Ignoring ipc$ share IPC$
 Downloaded 30b in 5 seconds
+```
+Let's see what we have downloaded
+```
 ~/samba$ ls
 guest
 ~/samba$ cd guest/
@@ -62,6 +65,5 @@ flag.txt
 ~/samba/guest$ cat flag.txt 
 utflag{gu3st_p4ss_4_3v3ry0n3}
 ```
-
 Flag
 utflag{gu3st_p4ss_4_3v3ry0n3}
