@@ -2,7 +2,7 @@
 
 This was the challenge description:
 
-*An old british scientific is trying to help you with this CTF, he only sent you one of his famous quotes. It seems that he has encripted a message, it could be the flag. He always signs with his name and surname...*
+*An old british scientific is trying to help you with this CTF, he only sent you one of his famous quotes. It seems that he has encrypted a message, it could be the flag. He always signs with his name and surname...*
 
 We get issued with a message.txt, that provides us with a quote and some code.
 ```text
