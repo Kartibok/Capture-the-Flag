@@ -7,7 +7,7 @@ Description:
 http://web1.utctf.live:8778/
 
 When we look at the front page we have a login portal. As it says in the title, lets check out the source.
-![[utctf002a.png]]
+![](./images/utctf002a.png)
 
 OK, the source gives us some code. It looks like we need to put in the password that equates to a hash. Luckily it also tells us the user should be 'admin'.
 
@@ -30,15 +30,15 @@ return false;
 
 As well as telling us the hash, it also suggests that it is a variant of MD5. Let's look at some online hash cracking sites.
 
-![[utctf002b.png]]
+![](./images/utctf002b.png)
 
 Lets use the first one and check our hash.
 
-![[utctf002c.png]]
+![](./images/utctf002c.png)
 
 Now we have our username and password, lets type it in and see what we get.
 
-![[utctf002d.png]]
+![](./images/utctf002d.png)
 
 Flag
 utctf{b33n_th3r3_s0uRc3d_th4t}
