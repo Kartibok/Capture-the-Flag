@@ -150,7 +150,7 @@ Lets make it so.
 -rwxrwxr-x 1 jim jim 16600 Mar 13 07:56 run
 ```
 
-We can now see the executavble bit in place. SO to run the file we do it within the current folder.
+We can now see the executable bit in place. SO to run the file we do it within the current folder.
 ```shell
 ~/Downloads$ ./run
 utflag{run_run_binary_9312854}
