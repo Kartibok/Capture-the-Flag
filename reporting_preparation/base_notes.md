@@ -1,7 +1,7 @@
 # name of room
 
 ## rustscan
-rustscan $IP --ulimit 5000
+rustscan -a $IP --ulimit 5000
 ```shell
 
 ```
