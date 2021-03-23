@@ -35,6 +35,11 @@ gobuster dir -u $IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.
 ```shell
 
 ```
+### sitemap
+
+```shell
+
+```
 ### cookies
 
 ```shell
