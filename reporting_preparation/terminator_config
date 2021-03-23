@@ -106,7 +106,7 @@
       order = 0
       profile = default
       uuid = 891acf1b-0892-4d60-a4a5-c57bc77d005f
-      command = rustscan $IP --ulimit 5000; bash
+      command = rustscan -a $IP --ulimit 5000; bash
     [[[terminal4]]]
       type = Terminal
       parent = child2
