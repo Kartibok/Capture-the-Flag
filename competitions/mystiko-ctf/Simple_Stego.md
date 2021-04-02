@@ -41,7 +41,7 @@ steg.jpg: PNG image data, 800 x 450, 8-bit/color RGBA, non-interlaced
 
 This time we know it is an image, however the extension is a .jpg but the "magic bytes" are telling us it is a .png. Lets have a look.
 
-![[image019a.png]]
+![](./images/image019a.png)
 
 Within Kali, we can see an image without any problem, so we don't need to change the extension.
 
