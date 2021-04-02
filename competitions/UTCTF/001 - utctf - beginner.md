@@ -52,7 +52,7 @@ Enter two operands:
 Error! operator is not correct
 ```
 
-Now that is easier to read as it is by line. However there are 87 lines to look through and the types of file can contain thousands of lines. What we can use is a command that whill help us look for patterns. In this case 'grep'
+Now that is easier to read as it is by line. However there are 87 lines to look through and the types of file can contain thousands of lines. What we can use is a command that will help us look for patterns. In this case 'grep'
 Again utilising the man page:
 *The _grep_ utility shall search the input files, selecting lines matching one or more patterns; the types of patterns are controlled by the options specified.*
 
@@ -150,7 +150,7 @@ Lets make it so.
 -rwxrwxr-x 1 jim jim 16600 Mar 13 07:56 run
 ```
 
-We can now see the executavble bit in place. SO to run the file we do it within the current folder.
+We can now see the executable bit in place. SO to run the file we do it within the current folder.
 ```shell
 ~/Downloads$ ./run
 utflag{run_run_binary_9312854}
