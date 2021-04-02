@@ -26,6 +26,8 @@ This is where we part ways my young Padawan. I have provided the tool to complet
 My hint now is "Remember the description" (a simple XOR challenge). Use what you have seen so far with the tool and you will get the flag. Finally it's called CyberChef for a reason - use multiple components and bake the solution!
 
 Remember:
+*
 - “Once you start down the dark path, forever will it dominate your destiny. Consume you, it will.” – Yoda
 - “Always pass on what you have learned.” — Yoda
-- “Patience you must have my young Padawan.” — Yoda*
+- “Patience you must have my young Padawan.” — Yoda
+*
