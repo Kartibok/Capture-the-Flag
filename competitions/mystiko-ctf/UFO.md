@@ -6,7 +6,7 @@ This was the challenge description:
 
 We are provided by what appears to be an FBI declassified document (pdf file) containing details of UFOs with some text redacted and a number of images.
 
-![](./images/image0015a.png)
+![](./images/image015a.png)
 
 If you read my MystikoCTF "Me and the Boys" write up, then you will be aware that I messed up in a number of ways, especially now that I have a new quote "Do something, record it, check it again."
 
@@ -42,7 +42,7 @@ So now we know what application created the PDF. Let's open the PDF file using i
 
 If you play about with the file and manipulate the layers/items within it you find that the documents has a number of secrets. 
 
-![](./images/image0015b.png)
+![](./images/image015b.png)
 
 Look closely and you will see what appears to be excrypted text.
 
