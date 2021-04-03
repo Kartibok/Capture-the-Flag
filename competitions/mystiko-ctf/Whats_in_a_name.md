@@ -49,4 +49,4 @@ I am an Offensive Security Researcher, Infosec Trainer, Gamer & Doodle artist.
 ```
 
 I tried this email but to no avail. We are sooooooooo close.
-Some further research on how to find email addresses from Github although some of the methods may be patchy but stick with it to get the flag. :)
+Some further research on how to find email addresses from Github will help, although some of the methods may be a bit patchy but stick with it to get the flag. :)
