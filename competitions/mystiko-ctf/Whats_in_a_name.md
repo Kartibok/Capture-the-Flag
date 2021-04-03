@@ -25,7 +25,7 @@ twitter\_username  "f************3"
 
 That looks like intetesting point so lets check that account. 
 
-![[image023b.png]]
+![](./images/image023b.png)
 
 OK, it doesn't exist, but if we search against anything rather than @ account, we get that link back.
 
