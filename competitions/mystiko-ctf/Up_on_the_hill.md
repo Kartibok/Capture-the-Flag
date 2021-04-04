@@ -14,11 +14,11 @@ https://whatsmyname.app/
 
 This highlights two areas to look at.
 
-![[image026a.png]]
+![](./images/image026a.png)
 
 As the hint mentioned Twitter, this is our first port of call.
 
-![[image026b.png]]
+![](./images/image026b.png)
 
 WIth only two tweets after his name, they should be important. We also have some more hints in the profile that helps to confirm the location of where we should be searching.
 
