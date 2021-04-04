@@ -35,11 +35,15 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 
 At it's very basics, the header + the payload are both encrypted, to create the signature block. It is this third block that verifies the whole token, has not been tampered with.
 
-![[image028a.png]]
+![](./images/image028a.png)
 
 So how do we get the token? If we look at the webpage we have a login portal and a guest option. We don't know the username and password, so lets try the Guest option.
 
-![[image028b.png]]
+![](./images/image028b.png)
+
+This puts us into a website as guest.
+
+![](./images/image028c.png)
 
 This puts us into a website as guest. However if we have a look at the cookies they provide, we have a:
 - session (decode with base64 to find out what it says)
@@ -48,7 +52,6 @@ This puts us into a website as guest. However if we have a look at the cookies t
 Now we have this we can go back to the login page and investigate further.
 
 As I have already mentioned we get the encoded token and when we use the jwt.io, we can see the header, payload and signature verification.
-
 ```
 {
   "typ": "JWT",
@@ -71,7 +74,6 @@ HMACSHA256(
   your-256-bit-secret
 ) secret base64 encoded
 ```
-
 Remembering that we can get past some sites by using the algorithm "none" and removing the final signature verification (don't forget to keep the "." otherwise it will fail, as this still indicates that the token has three parts) look at what you can change and amend.
 Remember you are trying to log in as admin using these tokens.
 
