@@ -22,7 +22,7 @@ Which in turn gave me a better idea of what I needed to do. So from the site: Wh
 
 *Although JWTs can be encrypted to also provide secrecy between parties, we will focus on signed tokens. Signed tokens can verify the integrity of the claims contained within it, while encrypted tokens hide those claims from other parties. When tokens are signed using public/private key pairs, the signature also certifies that only the party holding the private key is the one that signed it.*
 
-I did some searching for JWT exploits and it appears that if the site is set up incorrectly, it can accept an algorithm of "none," so with that in mind I thought I would give it a go.
+I did some searching for JWT exploits and it appears that if the site is set up incorrectly, it can accept a number of different algorithms,so with that in mind that should be your first point of investigation.
 
 Using the jwt.io site again, we can see from the default example that the token is broken down into three stages. 
 ```
@@ -37,7 +37,7 @@ At it's very basics, the header + the payload are both encrypted, to create the 
 
 ![](./images/image028a.png)
 
-So how do we get the token? If we look at the webpage we have a login portal and a guest option. We don't know the username and password, so lets try the Guest option.
+So how do we get the token? If we look at the webpage we have a login portal and a guest option. Does that do anything? Try the different options and see what you can find.
 
 ![](./images/image028b.png)
 
@@ -45,11 +45,11 @@ This puts us into a website as guest.
 
 ![](./images/image028c.png)
 
-This puts us into a website as guest. However if we have a look at the cookies they provide, we have a:
+What do the cookies provide?:
 - session (decode with base64 to find out what it says)
 - JWT (the token, with some interesting details.)
 
-Now we have this we can go back to the login page and investigate further with the JWT..
+Now we have this we can go back to the login page and continue to investigate further with the JWT..
 
 As I have already mentioned we get the encoded token and when we use the jwt.io, we can see the header, payload and signature verification.
 ```
