@@ -49,7 +49,7 @@ This puts us into a website as guest. However if we have a look at the cookies t
 - session (decode with base64 to find out what it says)
 - JWT (the token, with some interesting details.)
 
-Now we have this we can go back to the login page and investigate further.
+Now we have this we can go back to the login page and investigate further with the JWT..
 
 As I have already mentioned we get the encoded token and when we use the jwt.io, we can see the header, payload and signature verification.
 ```
