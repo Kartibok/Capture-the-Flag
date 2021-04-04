@@ -14,39 +14,11 @@ https://whatsmyname.app/
 
 This highlights a number of accounts. I'll check out the main ones first.
 
-- Twitter (following the link from Shadowban.eu, it appears that Pratyaksh06 has been suspended.)
-- Github (looks like we have a possible link back to the challenge author)
+- Twitter 
+- Github 
 
-```
-login "Pratyaksh06"
-id 43118103
-twitter\_username  "f************3"
-```
+They look intetesting so let's check those accounts out. 
 
-That looks like intetesting point so lets check that account. 
+Remember you can search for names as well as conversations.
 
-![](./images/image023b.png)
-
-OK, it doesn't exist, but if we search against anything rather than @ account, we get that link back.
-
-Although we find details, there is not much showing, so lets go back to the Github account.
-
-Standard search brings up a lot of details:
-```
-Hello there -General Kenobi
-
-I am an Offensive Security Researcher, Infosec Trainer, Gamer & Doodle artist.
-
-- I’m currently working on ...Read Teaming, Web Apllication & Network Penetration Testing
-- I’m currently learning ...Bash Scripting, Python Scripting, SOCs, Blue Teaming
-- I’m looking to collaborate on ...WAPT, Mentoring/Speaker, Community Partner as @Seconset
-- I’m looking for help with ...Web Application Penetration Testing
-- Ask me about ...My day, Work, DC & Hacking
-- How to reach me: ...f*********3@gmail.com
--  Pronouns: ...he/his/him
--  Quote: ...aren't we all here to make a difference?
-
-```
-
-I tried this email but to no avail. We are sooooooooo close.
-Some further research on how to find email addresses from Github will help, although some of the methods may be a bit patchy but stick with it to get the flag. :)
+Some further research on how to find email addresses from the social media sites you checked will help, although some of the methods may be a bit patchy, stick with it to get the flag. :)
