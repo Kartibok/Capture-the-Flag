@@ -44,7 +44,9 @@ GCC: (Debian 10.2.1-6) 10.2.1 20210110
 
 As I mentioned the application appeared to hang. Reading down main, we can see it calls sleep.
 
-![[image054a.png]]
+<br>
+<img src="image054a.png" alt="main view" width="400"/>
+<br>
 
 The line in IDA was interesting.
 *mov     edi, 55D4A80h   ; seconds*
