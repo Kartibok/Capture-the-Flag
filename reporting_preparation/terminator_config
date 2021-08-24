@@ -102,5 +102,5 @@
       order = 1
       profile = default
       uuid = c4a8d4ea-2c05-49c6-835c-30cbaca7c63d
-      command = feroxbuster --url http://$IP --depth 2 --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt; bash
+      command = feroxbuster --url http://$IP --depth 2 --wordlist /usr/share/wordlists/wfuzz/general/megabeast.txt; bash
 [plugins]
