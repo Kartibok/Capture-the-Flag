@@ -26,6 +26,11 @@ gobuster dir -u $IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.
 ```shell
 
 ```
+## feroxbuster
+feroxbuster --url http://$IP --depth 2 --wordlist /usr/share/wordlists/wfuzz/general/megabeast.txt
+```shell
+
+```
 ## website
 
 ### overview
