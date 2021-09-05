@@ -26,7 +26,7 @@ This time we get access to our profile.
 
 If you look closely, as I was using the build in browser within ZAP, you can see that I have a Profile ID of 1357.
 
-i initially checked the profiles of users 0 and 1 to see if I could access the admin, to no avail. I did try some additional ids but did not want to brute force as I thought it was not allowed.
+I initially checked the profiles of users 0 and 1 to see if I could access the admin, to no avail. I did try some additional ids but did not want to brute force as I thought it was not allowed.
 
 Once the challenge was finished I set up a ZAP fuzzer for 3000 ids.
 
