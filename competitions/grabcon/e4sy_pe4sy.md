@@ -9,7 +9,7 @@ Author: r3curs1v3_pr0xy
 
 If we follow the link, we get a food based website.
 
-Pasted image 20210905135636.png
+![](./Pasted image 20210905135636.png)
 
 Here us the Login page within the menu.
 
