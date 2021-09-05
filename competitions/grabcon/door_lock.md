@@ -12,7 +12,7 @@ Following the same format as the previous web challenge, we are back in our food
 
 ![](20210905135636.png)
 
-Here us the Login page within the menu.
+Here is the Login page within the menu.
 
 ![](20210905135810.png)
 
