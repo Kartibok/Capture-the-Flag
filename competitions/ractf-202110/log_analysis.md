@@ -11,7 +11,7 @@ We get to download a file: attack.7z - 55db32
 
 When we extract it we see a log file with a large amount of data:
 
-![](20211010201520.png)
+![](images/20211010201520.png)
 
 There are about 38000 lines of data.
 
@@ -19,7 +19,7 @@ In order to sort them more effectively I opened the file in LibreOffice Calc. Lo
 
 I filtered on this and quickly checked through the files, in order to remove any duplicates. When I got to the bottom, there were some strange lines utilising Linux commands from possibly some type of web based attack.
 
-![](20211010202021.png)
+![](images/20211010202021.png)
 
 If we remove the bottom command through to cat we actually get what appears to be a base64 text.
 `cmd%3Dcat+RE97YmV0dGVyX3JlbW92ZV90aGF0X2JhY2tkb29yfQ==`
@@ -44,13 +44,13 @@ We get to download a file: more.7z - c62a3a
 
 When we extract it we see another similar log file with an even larger amount of data:
 
-![](20211010201520.png)
+![](images/20211010201520.png)
 
 This time there are about 191000 lines of data.
 
 Now, I may not have used the correct method for capturing the flag but knowing that the attacker was using a specific text type; in this case base64 for `DO{` I did a search for RE97. This came up with one hit.
 
-![](20211010203528.png)
+![](images/20211010203528.png)
 
 Now we have the IP address.
 
@@ -71,7 +71,7 @@ We get to download a file: more.7z - c62a3a (same as before)
 Reviewing the file and filtering the `cs-uri-stem`again, this time with the search 'backup.'
 We note there are 73 of 191617 records. If we then look in the `time-taken` field we can see that it reports the actual webpage response codes with are either 404 (file not found) or 200 (success status). Checking for successful access we find one.
 
-![](20211010204417.png)
+![](images/20211010204417.png)
 
 Using CyberChef again with `RE97czNjcjN0X19fYWdlbnR9` gives us the final flag. 
 
