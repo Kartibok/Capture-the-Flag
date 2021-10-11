@@ -21,7 +21,7 @@ I filtered on this and quickly checked through the files, in order to remove any
 
 ![](20211010202021.png)
 
-If we remove the command through to cat we actually get a base64 text.
+If we remove the bottom command through to cat we actually get what appears to be a base64 text.
 `cmd%3Dcat+RE97YmV0dGVyX3JlbW92ZV90aGF0X2JhY2tkb29yfQ==`
 
 Using GCHQ Cyberchef, we get the flag.
@@ -46,9 +46,9 @@ When we extract it we see another similar log file with an even larger amount of
 
 ![](20211010201520.png)
 
-There are about 191000 lines of data.
+This time there are about 191000 lines of data.
 
-This time I may not have used the correct method for capturing the flag but knowing that the attacker was using a specific text type; in this case base64 for `DO{` I did a search for RE97. This came up with one hit.
+Now, I may not have used the correct method for capturing the flag but knowing that the attacker was using a specific text type; in this case base64 for `DO{` I did a search for RE97. This came up with one hit.
 
 ![](20211010203528.png)
 
@@ -68,8 +68,8 @@ Description:
 ---
 We get to download a file: more.7z - c62a3a (same as before)
 
-Reviewing the file and filtering the `cs-uri-stem`again, this time filtering with 'backup.'
-We note there are 73 of 191617 records. If we then look in the `time-taken` field we can see that the errors are either 404 or 200. Checking for successful 200s we find one.
+Reviewing the file and filtering the `cs-uri-stem`again, this time with the search 'backup.'
+We note there are 73 of 191617 records. If we then look in the `time-taken` field we can see that it reports the actual webpage response codes with are either 404 (file not found) or 200 (success status). Checking for successful access we find one.
 
 ![](20211010204417.png)
 
