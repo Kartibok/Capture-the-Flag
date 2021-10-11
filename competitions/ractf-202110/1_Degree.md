@@ -12,7 +12,7 @@ Description:
 ---
 As a bit of a film buff I was aware of the term "six degrees of separation" A quick review on Google refreshes my mind.
 
-![](20211011065411.png)
+![](images/20211011065411.png)
 
 This then leads me to the website that will check the two actors.
 
@@ -20,7 +20,7 @@ This then leads me to the website that will check the two actors.
 
 Entering the two names gives me the required link.
 
-![](20211011065718.png)
+![](images/20211011065718.png)
 
 Taking this information:
 - Number of Degrees: 2
