@@ -1,7 +1,19 @@
 # name of room
 
-## rustscan
+## enumeration
+
+### ping
+ping $IP -c 4
+```shell
+
+```
+### rustscan
 rustscan -a $IP --ulimit 5000
+```shell
+
+```
+### masscan
+masscan -p1-65535,U:1-65535 $IP --rate=1000 -e tun0
 ```shell
 
 ```
@@ -10,25 +22,38 @@ nmap -A -sC -sV $IP -p-
 ```shell
 
 ```
-## nikto
+### nikto
 nikto -h $IP -Display 2
 ```shell
 
 ```
-## gobuster
-### initial
+### gobuster
+#### initial
 gobuster dir -u $IP -w /usr/share/wordlists/dirb/common.txt
 ```shell
 
 ```
-### secondary
+#### secondary
 gobuster dir -u $IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 ```shell
 
 ```
-## feroxbuster
+### feroxbuster
 feroxbuster --url http://$IP --depth 2 --wordlist /usr/share/wordlists/wfuzz/general/megabeast.txt
 ```shell
+
+```
+### wpscan
+wpscan --url $IP
+```shell
+
+```
+### ftp
+```shell
+
+```
+### ssh
+``` shell
 
 ```
 ## website
@@ -36,40 +61,30 @@ feroxbuster --url http://$IP --depth 2 --wordlist /usr/share/wordlists/wfuzz/gen
 ### overview
 
 ### robots.txt
-
-```shell
+```html
 
 ```
 ### sitemap
-
-```shell
+```xml
 
 ```
 ### cookies
-
-```shell
+```text
 
 ```
 ### sourcecode
+```html
 
+```
 ## initial summary
-After the external review of the server, we have the following to investigate.
+After the initial review of the server, we have the following to investigate.
 
 1.
 1.
 1.
 1.
 
-
-## ftp
-```shell
-
-```
-## ssh
-``` shell
-
-```
-## steganography
+### steganography if required
 
 Utilise the following techniques on images and steganography challenges.
 
@@ -81,7 +96,12 @@ Utilise the following techniques on images and steganography challenges.
 1. stegsolve
 1. stegcracker
 
-## what is next
+## secondary summary
+After the secondary review of the server, we have the following to investigate.
 
+2.
+2.
+2.
+2.
 
 ## review 
