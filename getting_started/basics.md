@@ -39,4 +39,9 @@ Now learning can be boring so can to a certain degree mix and match the list bel
    2. Similar to HTB, THM - great pathways and enough free boxes/rooms to help you learn the basics. https://tryhackme.com/
    3. 24/7 CTFs - with hundreds of challenges in their "picogym" all go towards improving your skills as you attack boxes. https://picoctf.org/
 
+9. Programming Languages, either look at the amazing free youtube training videos or maybe purchase online courses. They all do the same thing. Get a basic understanding of what they are, what they do, and what you can do to use them:
+   1. Python
+   2. Javascript/Java/JS
+   3. Php
+   4. Bash
    
