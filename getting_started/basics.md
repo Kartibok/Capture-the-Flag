@@ -34,4 +34,9 @@ Now learning can be boring so can to a certain degree mix and match the list bel
    1. I recommend Virtualbox by Oracle. https://www.virtualbox.org/
    2. I recommend you use the pre-built kali virtual machines. https://www.kali.org/get-kali/#kali-virtual-machines
 
+8. Additional resources that I use:
+   1. Look at the Bandit series first, will help with Linux; fantastic challenges. https://overthewire.org/wargames/
+   2. Similar to HTB, THM - great pathways and enough free boxes/rooms to help you learn the basics. https://tryhackme.com/
+   3. 24/7 CTFs - with hundreds of challenges in their "picogym" all go towards improving your skills as you attack boxes. https://picoctf.org/
+
    
