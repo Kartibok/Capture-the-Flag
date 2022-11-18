@@ -12,7 +12,7 @@ Now learning can be boring so can to a certain degree mix and match the list bel
    4. Introduction to Networking
    5. Windows Fundamentals
 
-3. Starting Point Boxes (13 free; 10 require a subscription)
+3. Starting Point Boxes (13 free; 11 require a subscription)
 
    1. Each box provides a learning point, that you will be tested against and as part of that knowledge transfer provides a walk through to assist.
    2. The first box "Meow"  introduces:
