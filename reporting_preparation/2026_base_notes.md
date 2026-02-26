@@ -86,7 +86,7 @@ wpscan --url $IP
 ``` shell
 
 ```
-### ⚙️ 1.3 Service Specific Checks
+## ⚙️ 1.3 Service Specific Checks
 
 ### robots.txt
 ```html
@@ -104,6 +104,8 @@ wpscan --url $IP
 ```html
 
 ```
+## 🕸️ 1.4 Website Recon
+
 
 ## 📝 Initial Summary
 After the initial review of the server, we have the following to investigate. Include application service versions.
